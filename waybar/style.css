@@ -1,0 +1,124 @@
+@keyframes blink {
+    to {
+        background-color: white;
+        color: black;
+    }
+}
+
+* {
+    border: none;
+    margin: 0;
+    font-family: "Noto Sans Mono";
+    font-weight: 500;
+    font-size: 16px;
+    min-height: 0;
+    color: white;
+}
+
+window#waybar {
+    /* background-color: rgba(50, 50, 50, 0.85); */
+    background-color: rgba(25, 25, 25, 0.85);
+    border-bottom: 1px solid black;
+    color: #FFF3A7;
+}
+
+#workspaces {
+    transition: ease-in;
+}
+
+#workspaces button,
+#workspaces button.persistent {
+    transition: none;
+    /* margin: 2px; */
+}
+
+#workspaces button.active {
+    color: #19140E;
+    background-color: rgba(200, 200, 200, 0.1);
+    /* border-radius: 10px; */
+    border-radius: 0;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: white;
+}
+
+#workspaces button:hover {
+    color: white;
+    /* border-radius: 5px; */
+    border-radius: 0;
+}
+
+#taskbar {
+    /* border-radius: 5px; */
+    margin: 5px 10px 5px 50px;
+}
+
+tooltip {
+    opacity: 0.80;
+}
+
+tooltip label {
+    color: white;
+}
+
+#cpu,
+#disk,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray,
+#temperature,
+#backlight,
+#language {
+    padding: 0px 5px;
+    margin: 2px 0px 2px 0px;
+    /* background-color: darkslategray; */
+}
+
+/* #disk.critical, */
+/* #temperature.critical { */
+/*     background-color: @critical; */
+/* } */
+
+/* #disk.warning, */
+/* #temperature.warning { */
+/*     background-color: @warning; */
+/* } */
+
+#battery {
+    /* color: white; */
+    /* border-radius: 5px 0px 0px 5px; */
+}
+
+#battery.discharging {
+    /* color: darkgray; */
+}
+
+#battery.warning:not(.charging) {
+    /* background: orangered; */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+    /* background-color: red; */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#clock {}
+
+#tray menu {
+    color: black;
+    background-color: rgba(20, 20, 20, 0.7);
+}
