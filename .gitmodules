@@ -22,3 +22,6 @@
 [submodule ".config/nvim/pack/plugins/start/gruvbox"]
 	path = .config/nvim/pack/plugins/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/PERTZ42/nvim
