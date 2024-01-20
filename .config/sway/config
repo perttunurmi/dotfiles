@@ -4,7 +4,7 @@
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #output * bg ~/downloads/metalgearbg2.png fill #output * bg ~/downloads/metalgearbg.jpg fill
 #output * bg ~/downloads/Virgil_Reading_the_Aeneid.jpg fill
-#output * bg ~/pictures/nobg.jpg fill
+output * bg ~/pictures/linux.png fill
 
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -13,6 +13,7 @@ output HDMI-A-1 resolution 1920x1080@239.771Hz position 1920,0
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+#set $mod Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -22,11 +23,12 @@ set $right l
 
 
 # Your preferred terminal emulator
-set $term foot
+#set $term foot
+set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show run
-
+set $menu+k $(print "test\\ntwo" | dmenu)
 
 ### Idle configuration
 exec swayidle -w \
@@ -137,9 +139,10 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% 
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle 
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle 
 
 
 mode "resize" {
@@ -167,14 +170,15 @@ bar {
     font pango:Fira Sans SemiBold 10
     #chmod +x ~/.config/sway/status.sh
     status_command while '~/.config/sway/status.sh'; do sleep 1; done
-    #status_command i3status
-        colors {
-            statusline #ebdbb2
-            background #3c3836
-            # Outline, Background, Foreground
-            inactive_workspace #282828 #282828 #928374
-            focused_workspace #83a598 #458588 #eddbb2
-        }
+#    status_command i3status
+#    status_command waybar
+      colors {
+          statusline #ebdbb2
+          background #3c3836
+          # Outline, Background, Foreground
+          inactive_workspace #282828 #282828 #928374
+          focused_workspace #83a598 #458588 #eddbb2
+      }
 }
 
 
@@ -184,4 +188,5 @@ default_border pixel 2
 
 #chmod +x ~/.config/sway/weather.sh
 exec_always '~/.config/sway/weather.sh'
+exec_always autotiling
 include /etc/sway/config.d/*

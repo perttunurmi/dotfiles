@@ -26,7 +26,7 @@ alias rm="rm -i"
 # Enable colors and change prompt:
 autoload -U colors && colors
 PS1="%B%{$fg[red]%} ✓ %{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}%{$reset_color%} ➜%b "
-
+PS1="%B%{$fg[red]%} ✓ %{$fg[yellow]%}%M %{$reset_color%}%~%  %{$fg[blue]%}➜%b "
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
@@ -84,6 +84,8 @@ lfcd () {
 
 bindkey -s '^o' 'lfcd\n'
 bindkey -s '^f' 'fzf -i \n'
+bindkey -s '^n' 'nvim .\n'
+bindkey -s '^r' 'fzf -i | xargs -r nvim \n'
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
