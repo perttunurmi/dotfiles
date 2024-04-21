@@ -1,14 +1,12 @@
-#
-# ~/.bashrc
-#
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
-
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -49,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -78,13 +76,12 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-    alias rm="rm -i"
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
@@ -92,9 +89,38 @@ fi
 
 # some more ls aliases
 alias ll='ls -l'
+alias lla='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias 'tmuxa'='tmux attach'
+
+alias ff='nvim $(find * -type f | fzf)'
+alias fd='cd $(find * -type d | fzf)'
+
+alias python='python3'
+
+# Colors
+default=$(tput sgr0)
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+purple=$(tput setaf 5)
+orange=$(tput setaf 9)
+
+# Less colors for man pages
+export PAGER=less
+# Begin blinking
+export LESS_TERMCAP_mb=$red
+# Begin bold
+export LESS_TERMCAP_md=$orange
+# End mode
+export LESS_TERMCAP_me=$default
+# End standout-mode
+export LESS_TERMCAP_se=$default
+# Begin standout-mode - info box
+export LESS_TERMCAP_so=$purple
+# End underline
+export LESS_TERMCAP_ue=$default
+# Begin underline
+export LESS_TERMCAP_us=$green
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -116,17 +142,29 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-#!/bin/bash
-export SDL_VIDEODRIVER=wayland
-export _JAVA_AWT_WM_NONREPARENTING=1
-export QT_QPA_PLATFORM=wayland
-export XDG_CURRENT_DESKTOP=sway
-export XDG_SESSION_DESKTOP=sway
-
-export PATH=$PATH:/usr/local/go/bin
-
-
-#   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-#   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
+# bash theme - partly inspired by https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/robbyrussell.zsh-theme
+__bash_prompt() {
+   #local userpart='`export XIT=$? \
+   #    && [ ! -z "${GITHUB_USER}" ] && echo -n "\[\033[0;32m\]@${GITHUB_USER} " || echo -n "\[\033[0;32m\]\u " \
+   #    && [ "$XIT" -ne "0" ] && echo -n "\[\033[1;31m\]➜" || echo -n "\[\033[0m\]➜"`'
+    local userpart='\u@\h:'
+    local userpart='\[\e[92m\]\u@\h\[\e[0m\]:'
+    local gitbranch='`\
+        if [ "$(git config --get devcontainers-theme.hide-status 2>/dev/null)" != 1 ] && [ "$(git config --get codespaces-theme.hide-status 2>/dev/null)" != 1 ]; then \
+            export BRANCH=$(git --no-optional-locks symbolic-ref --short HEAD 2>/dev/null || git --no-optional-locks rev-parse --short HEAD 2>/dev/null); \
+            if [ "${BRANCH}" != "" ]; then \
+                echo -n "\[\033[0;36m\](\[\033[1;31m\]${BRANCH}"\
+                && if [ "$(git config --get devcontainers-theme.show-dirty 2>/dev/null)" = 1 ] && \
+                    git --no-optional-locks ls-files --error-unmatch -m --directory --no-empty-directory -o --exclude-standard ":/*" > /dev/null 2>&1; then \
+                        echo -n " \[\033[1;33m\]✗";\
+                fi \
+                && echo -n "\[\033[0;36m\])"; \
+            fi; \
+        fi`'
+    local lightblue='\[\033[1;34m\]'
+    local removecolor='\[\033[0m\]'
+    PS1="${userpart}${lightblue}\w${gitbranch}${removecolor}\$ "
+    unset -f __bash_prompt
+}
+__bash_prompt
+export PROMPT_DIRTRIM=4
