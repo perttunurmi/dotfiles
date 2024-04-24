@@ -1,3 +1,4 @@
+include colorscheme
 # Read `man 5 sway` for a complete reference.
 #
 # Windows:
@@ -17,6 +18,12 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [window_role="About"] floating enable
 for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [window_role = "task_dialog"] floating enable
+for_window [window_type = "menu"] floating enable
+for_window [app_id = "floating"] floating enable
+for_window [app_id = "floating_update"] floating enable, resize set width 1000px height 600px
+for_window [class = "(?i)pinentry"] floating enable
+for_window [title = "Administrator privileges required"] floating enable
 
 ### Variables
 #
@@ -35,6 +42,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show run
+
 
 include /etc/sway/config-vars.d/*
 
@@ -232,11 +240,35 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+bindsym XF86AudioRaiseVolume exec pamixer -i 5 && pamixer --get-volume > /tmp/wobpipe
+bindsym XF86AudioLowerVolume exec pamixer -d 5 && pamixer --get-volume > /tmp/wobpipe
+bindsym XF86AudioMute exec pamixer --toggle-mute # no graphical output here
+
+bindsym XF86MonBrightnessUp exec light -A 5 
+bindsym XF86MonBrightnessDown exec light -U 5 
+
+#
+# Screen capture
+#
+set $ps1 Print
+set $ps2 Control+Print
+set $ps3 Alt+Print
+set $ps4 Alt+Control+Print
+set $psf $(xdg-user-dir PICTURES)/ps_$(date +"%Y%m%d%H%M%S").png
+ 
+bindsym $ps1 exec grim - | wl-copy
+bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
+bindsym $ps3 exec grim $psf
+bindsym $ps4 exec grim -g "$(slurp)" $psf
+
+
+
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    font pango:Ubuntu 10
     position top
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -254,10 +286,25 @@ bar {
 default_border pixel 2
 client.focused #000000 #5e81ac #ffffff
 
+# gtk
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+  gsettings set $gnome-schema gtk-theme Adwaita-dark
+  gsettings set $gnome-schema gtk-application-prefer-dark-theme true
+  gsettings set $gnome-schema icon-theme Papirus-Dark
+  gsettings set $gnome-schema cursor-theme Adwaita
+}
+seat seat0 xcursor_theme Adwaita 24
+
 exec mako
 exec nm-applet --indicator
 exec ~/.config/sway/status.sh
 exec ~/.config/sway/weather.sh
+exec_always ~/.config/sway/wob.sh
+exec_always test -f ~/.Xresources && xrdb -merge ~/.Xresources
 exec_always autotiling
+exec --no-startup-id dbus-update-activation-environment --all
 
 include /etc/sway/config.d/*
+include $HOME/.config/sway/config.d/*

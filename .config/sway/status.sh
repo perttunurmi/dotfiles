@@ -4,8 +4,9 @@ do
     time=$(date +'%I:%M %p')
     weather=$(cat '/tmp/weather') 
     battery=$(cat "/sys/class/power_supply/BAT0/capacity")
+    brightness=$(light -G)
 
-    echo " | BAT:$battery% | $weather | $date | $time | "
+    echo "| ☀️$brightness | BAT:$battery% | $weather | $date | $time | "
     sleep 6
 
 done 
