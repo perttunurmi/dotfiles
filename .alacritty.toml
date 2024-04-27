@@ -21,7 +21,6 @@
 [window]
 
 opacity = 0.9
-
 #padding.x = 10
 #padding.y = 10
 
@@ -30,10 +29,10 @@ decorations_theme_variant = "Dark" #"Light"
 
 [font]
 
-normal.family = "JetBrains Mono"
-bold.family = "JetBrains Mono"
-italic.family = "JetBrains Mono"
-bold_italic.family = "JetBrains Mono"
+normal.family = "ZedMono Nerd Font"
+bold.family = "ZedMono Nerd Font"
+italic.family = "ZedMono Nerd Font"
+bold_italic.family = "ZedMono Nerd Font"
 
 size = 15
 

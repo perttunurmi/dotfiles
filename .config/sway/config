@@ -11,8 +11,7 @@ for_window [app_id="virt-manager"] floating enable, border normal
 for_window [app_id="copyq"] floating enable, sticky enable, resize set height 600px width 550px, move position cursor, move down 330
 # set floating for window roles
 for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
+for_window [window_role="bubble"] floating enable for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
@@ -244,8 +243,8 @@ bindsym XF86AudioRaiseVolume exec pamixer -i 5 && pamixer --get-volume > /tmp/wo
 bindsym XF86AudioLowerVolume exec pamixer -d 5 && pamixer --get-volume > /tmp/wobpipe
 bindsym XF86AudioMute exec pamixer --toggle-mute # no graphical output here
 
-bindsym XF86MonBrightnessUp exec light -A 5 
-bindsym XF86MonBrightnessDown exec light -U 5 
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 #
 # Screen capture
@@ -278,6 +277,7 @@ bar {
     colors {
         statusline #ffffff
         background #323232
+        background #1c1717
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
