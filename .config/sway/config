@@ -260,6 +260,8 @@ bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
 bindsym $ps3 exec grim $psf
 bindsym $ps4 exec grim -g "$(slurp)" $psf
 
+# bindsym Mod4+e exec nautilus
+
 
 
 #
