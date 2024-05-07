@@ -1,6 +1,6 @@
 ### Essentials
 ```
-sudo apt install curl wget build-essential zsh cmake gcc g++
+sudo apt install curl wget build-essential zsh cmake gcc g++ git gh zoxide fzf btop vim
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install eza
