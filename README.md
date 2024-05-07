@@ -1,3 +1,12 @@
+### Essentials
+```
+sudo apt install curl wget build-essential zsh cmake gcc g++
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+brew install eza
+```
+
+### Dotfiles
 ```
 git clone https://github.com/PERTZ42/.dotfiles
 ```
