@@ -29,10 +29,10 @@ decorations_theme_variant = "Dark" #"Light"
 
 [font]
 
-normal.family = "ZedMono Nerd Font"
-bold.family = "ZedMono Nerd Font"
-italic.family = "ZedMono Nerd Font"
-bold_italic.family = "ZedMono Nerd Font"
+normal.family = "JetBrainsMono Nerd Font"
+bold.family = "JetBrainsMono Nerd Font"
+italic.family = "JetBrainsMono Nerd Font"
+bold_italic.family = "JetBrainsMono Nerd Font"
 
 size = 15
 
