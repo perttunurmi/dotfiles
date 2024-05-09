@@ -110,10 +110,18 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -l'
-alias lla='ls -alF'
+# alias ll='ls -l'
+# alias lla='ls -alF'
+# alias la='ls -A'
+# alias l='ls -CF'
+
+alias ls='eza'
+alias ll='eza -l'
+alias lla='eza -alF'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='eza -CF'
+
+alias bat='batcat'
 
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -139,6 +147,7 @@ PROMPT='${userpart}%F{blue}%~%F{red}${vcs_info_msg_0_}%f$ '
 #PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)")%f]\$ '
 
+alias weather='curl "wttr.in/Jyväskylä"'
 
 source ~/.git-prompt.sh
 # Load zsh-syntax-highlighting; should be last.
