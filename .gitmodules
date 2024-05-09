@@ -1,3 +1,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/PERTZ42/nvim
+[submodule ".config/awesome/widgets/awesome-wm-widgets"]
+	path = .config/awesome/widgets/awesome-wm-widgets
+	url = https://github.com/streetturtle/awesome-wm-widgets
