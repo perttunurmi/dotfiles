@@ -54,7 +54,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "gtk/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "x-terminal-emulator" -- Default terminal
@@ -195,7 +195,8 @@ awful.screen.connect_for_each_screen(function(s)
   set_wallpaper(s)
 
   -- Each screen has its own tag table.
-  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+  -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+  awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1]) -- LESS IS MORE
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -237,8 +238,8 @@ awful.screen.connect_for_each_screen(function(s)
     {             -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       --mykeyboardlayout,
-      wibox.widget.systray(),
       mytextclock,
+      wibox.widget.systray(),
       s.mylayoutbox,
     },
   }
@@ -575,6 +576,7 @@ client.connect_signal("request::titlebars", function(c)
       layout  = wibox.layout.flex.horizontal
     },
     { -- Right
+      wibox.widget.systray(),
       awful.titlebar.widget.floatingbutton(c),
       awful.titlebar.widget.maximizedbutton(c),
       awful.titlebar.widget.stickybutton(c),
@@ -596,8 +598,11 @@ end)
 --client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+
 -- Autostart
 awful.spawn.with_shell("compton")
-awful.spawn.with_shell("nitrogen --restore")
+--awful.spawn.with_shell("keepassxc")
+awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("nm-applet")
-awful.spawn.with_shell("keepassxc")
+awful.spawn.with_shell("nitrogen --restore")
+--awful.spawn.with_shell("~/.config/awesome/widgets/volume.python")

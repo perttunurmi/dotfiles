@@ -1,0 +1,28 @@
+/home/pertz/.config/awesome/widgets/volume-applet.python:6: PyGIWarning: AppIndicator3 was imported without specifying a version first. Use gi.require_version('AppIndicator3', '0.1') before import to ensure that the right version gets loaded.
+  from gi.repository import Gtk as gtk, AppIndicator3 as appindicator
+/home/pertz/.config/awesome/widgets/volume-applet.python:19: PyGTKDeprecationWarning: Using positional arguments with the GObject constructor has been deprecated. Please specify keyword(s) for "label" or use a class specific constructor. See: https://wiki.gnome.org/PyGObject/InitializerDeprecations
+  command_one = gtk.MenuItem('Control')
+/home/pertz/.config/awesome/widgets/volume-applet.python:22: PyGTKDeprecationWarning: Using positional arguments with the GObject constructor has been deprecated. Please specify keyword(s) for "label" or use a class specific constructor. See: https://wiki.gnome.org/PyGObject/InitializerDeprecations
+  exittray = gtk.MenuItem('Exit Tray')
+
+(volume-applet.python:395808): Gdk-CRITICAL **: 14:58:31.281: gdk_window_thaw_toplevel_updates: assertion 'window->update_and_descendants_freeze_count > 0' failed
+Traceback (most recent call last):
+  File "/home/pertz/.config/awesome/widgets/volume-applet.python", line 39, in <module>
+    main()
+  File "/home/pertz/.config/awesome/widgets/volume-applet.python", line 13, in main
+    gtk.main()
+  File "/usr/lib/python3/dist-packages/gi/overrides/Gtk.py", line 1687, in main
+    with register_sigint_fallback(Gtk.main_quit):
+  File "/usr/lib/python3.10/contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "/usr/lib/python3/dist-packages/gi/_ossighelper.py", line 237, in register_sigint_fallback
+    signal.default_int_handler(signal.SIGINT, None)
+KeyboardInterrupt
+/home/pertz/.config/awesome/widgets/volume-applet.python:6: PyGIWarning: AppIndicator3 was imported without specifying a version first. Use gi.require_version('AppIndicator3', '0.1') before import to ensure that the right version gets loaded.
+  from gi.repository import Gtk as gtk, AppIndicator3 as appindicator
+/home/pertz/.config/awesome/widgets/volume-applet.python:19: PyGTKDeprecationWarning: Using positional arguments with the GObject constructor has been deprecated. Please specify keyword(s) for "label" or use a class specific constructor. See: https://wiki.gnome.org/PyGObject/InitializerDeprecations
+  command_one = gtk.MenuItem('Control')
+/home/pertz/.config/awesome/widgets/volume-applet.python:22: PyGTKDeprecationWarning: Using positional arguments with the GObject constructor has been deprecated. Please specify keyword(s) for "label" or use a class specific constructor. See: https://wiki.gnome.org/PyGObject/InitializerDeprecations
+  exittray = gtk.MenuItem('Exit Tray')
+
+(volume-applet.python:395944): Gdk-CRITICAL **: 14:58:48.913: gdk_window_thaw_toplevel_updates: assertion 'window->update_and_descendants_freeze_count > 0' failed

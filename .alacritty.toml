@@ -18,6 +18,10 @@
 # I put the file alacritty.toml in $HOME/.config/alacritty. However it can be kept anywhere among the places mentioned in
 # https://github.com/alacritty/alacritty/tree/master#configuration
 
+import = [
+    "~/.config/alacritty/themes/themes/.toml"
+]
+
 [window]
 
 opacity = 0.9
@@ -39,6 +43,7 @@ size = 12
 # Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
 # Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a 
 # small box when a HEX is detected by the editor.
+
 
 [mouse]
 hide_when_typing = true

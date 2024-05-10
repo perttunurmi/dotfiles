@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="sftp://192.168.0.175/" added="2024-05-05T18:35:11.826309Z" modified="2024-05-06T13:41:39.149807Z" visited="2024-05-06T13:41:39.149799Z">
+    <title>/ on 192.168.0.175</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2024-05-06T13:41:39.149803Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://windows11/e/" added="2024-05-05T19:05:34.109056Z" modified="2024-05-05T19:05:34.109063Z" visited="2024-05-05T19:05:34.109058Z">
+    <title>e on windows11</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2024-05-05T19:05:34.109060Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://windows11/c/" added="2024-05-05T19:13:27.336435Z" modified="2024-05-05T19:13:27.336451Z" visited="2024-05-05T19:13:27.336439Z">
+    <title>c on windows11</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2024-05-05T19:13:27.336444Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
