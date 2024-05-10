@@ -123,8 +123,8 @@ alias l='eza -CF'
 
 alias bat='batcat'
 
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='vim'
+export VISUAL='vim'
 #set -o vi
 export KEYTIMEOUT=1
 
@@ -148,6 +148,7 @@ PROMPT='${userpart}%F{blue}%~%F{red}${vcs_info_msg_0_}%f$ '
 setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)")%f]\$ '
 
 alias weather='curl "wttr.in/Jyväskylä"'
+alias battery='cat /sys/class/power_supply/BAT0/capacity'
 
 source ~/.git-prompt.sh
 # Load zsh-syntax-highlighting; should be last.
