@@ -154,7 +154,3 @@ export PATH="$PATH:/opt/nvim/"
 source ~/.git-prompt.sh
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-tmux-git-autofetch() {(/home/pertz/.tmux/plugins/tmux-git-autofetch/git-autofetch.tmux --current &)}
-add-zsh-hook chpwd tmux-git-autofetch
-    
