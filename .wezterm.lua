@@ -20,7 +20,8 @@ config.colors = {}
 config.colors.background = '#111111'
 
 config.font = wezterm.font_with_fallback {
-  'Fira COde Nerd Font',
+  'Hack Nerd Font',
+  --'Fira Code Nerd Font',
   'nonicons',
 }
 
@@ -35,6 +36,7 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
+
 
 config.tab_bar_at_bottom = true
 config.freetype_load_target = "HorizontalLcd"
