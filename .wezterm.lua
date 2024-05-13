@@ -20,7 +20,8 @@ config.colors = {}
 config.colors.background = '#111111'
 
 config.font = wezterm.font_with_fallback {
-  'Hack Nerd Font',
+  'Hack Nerd Font Mono',
+  --'Hack Nerd Font',
   --'Fira Code Nerd Font',
   'nonicons',
 }
