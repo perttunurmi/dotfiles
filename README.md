@@ -57,3 +57,8 @@ git clone --recurse-submodules "https://github.com/PERTZ42/nvim"
 ```
 git submodule update --recursive --remote
 ```
+
+### Extra
+```
+sudo apt install rofi pavucontrol
+```

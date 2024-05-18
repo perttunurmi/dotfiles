@@ -20,9 +20,9 @@ def menu():
     command_one = gtk.MenuItem('Control')
     command_one.connect('activate', pavu)
     menu.append(command_one)
-    # exittray = gtk.MenuItem('Exit Tray')
-    # exittray.connect('activate', quit)
-    # menu.append(exittray)
+    exittray = gtk.MenuItem('Exit Tray')
+    exittray.connect('activate', quit)
+    menu.append(exittray)
 
     menu.show_all()
     return menu

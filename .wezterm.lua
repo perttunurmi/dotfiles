@@ -21,9 +21,9 @@ config.colors.background = '#111111'
 
 config.font = wezterm.font_with_fallback {
   'Hack Nerd Font Mono',
-  --'Hack Nerd Font',
+  'Hack Nerd Font',
   --'Fira Code Nerd Font',
-  'nonicons',
+  'nonicon',
 }
 
 -- default is true, has more "native" look

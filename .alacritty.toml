@@ -33,12 +33,12 @@ decorations_theme_variant = "Dark" #"Light"
 
 [font]
 
-normal.family = "JetBrainsMono Nerd Font"
-bold.family = "JetBrainsMono Nerd Font"
-italic.family = "JetBrainsMono Nerd Font"
-bold_italic.family = "JetBrainsMono Nerd Font"
+normal.family = "Commit Mono"
+bold.family = "Commit Mono"
+italic.family = "Commit Mono"
+bold_italic.family = "Commit Mono"
 
-size = 12
+size = 15
 
 # Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
 # Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a 
