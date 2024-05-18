@@ -55,10 +55,12 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "gtk/theme.lua")
+beautiful.init("/home/pertz/.config/awesome/theme.lua")
+
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "x-terminal-emulator" -- Default terminal
-terminal = "alacritty"
+terminal = "alacritty" or "wezterm"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -339,6 +341,14 @@ globalkeys = gears.table.join(
   -- Prompt
   awful.key({ modkey }, "r", function() awful.screen.focused().mypromptbox:run() end,
     { description = "run prompt", group = "launcher" }),
+
+  -- Rofi drun
+  awful.key({ modkey }, "d", function() awful.spawn.with_shell("rofi -show drun") end,
+    { description = "run applications", group = "launcher" }),
+
+  -- Rofi window switcher
+  awful.key({ modkey }, "Tab", function() awful.spawn.with_shell("rofi -show window") end,
+    { description = "window switcher", group = "launcher" }),
 
   awful.key({ modkey }, "x",
     function()
