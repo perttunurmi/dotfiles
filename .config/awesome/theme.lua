@@ -13,18 +13,18 @@ local theme         = {}
 
 theme.font          = "mono 12"
 
-theme.bg_normal     = "#261e2b"
-theme.bg_focus      = "#271f70"
-theme.bg_urgent     = "#ff0000"
+theme.bg_normal     = "#1F5370"
+theme.bg_focus      = "#281F70"
+theme.bg_urgent     = "#701F3F"
 theme.bg_minimize   = "#0f0d11"
-theme.bg_systray    = "#231d20"
+theme.bg_systray    = "#1F5370"
 
 theme.fg_normal     = "#ffffff"
 theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
+theme.fg_urgent     = "#000000"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(0)
+theme.useless_gap   = dpi(1)
 theme.border_width  = dpi(1)
 theme.border_normal = "#000000"
 theme.border_focus  = "#271f70"
@@ -42,10 +42,12 @@ theme.border_marked = "#91231c"
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
---theme.taglist_bg_focus = "#ff0000"
+theme.taglist_bg_focus = "#67701F"
+theme.tasklist_bg_focus = "#1F7050"
+
 
 -- Generate taglist squares:
-local taglist_square_size                       = dpi(4)
+local taglist_square_size                       = dpi(5)
 theme.taglist_squares_sel                       = theme_assets.taglist_squares_sel(
     taglist_square_size, theme.fg_normal
 )
@@ -62,9 +64,9 @@ theme.taglist_squares_unsel                     = theme_assets.taglist_squares_u
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon                         = themes_path .. "default/submenu.png"
-theme.menu_height                               = dpi(15)
-theme.menu_width                                = dpi(100)
+--theme.menu_submenu_icon                         = themes_path .. "default/submenu.png"
+theme.menu_height                               = dpi(25)
+theme.menu_width                                = dpi(250)
 
 -- You can add as many variables as
 -- you wish and access them by using
@@ -98,7 +100,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path .. "default/titleb
 theme.titlebar_maximized_button_normal_active   = themes_path .. "default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active    = themes_path .. "default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper                                 = themes_path .. "default/background.png"
+-- theme.wallpaper                                 = themes_path .. "/background.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh                              = themes_path .. "default/layouts/fairhw.png"

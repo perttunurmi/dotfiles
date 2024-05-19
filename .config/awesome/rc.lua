@@ -611,11 +611,6 @@ end)
 --client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- }}}
--- {{{ Naughty
--- Fuck off spotify i hate your shitty enormous notifications.
-naughty.config.presets.spotify = {callback = function() return false end}
-table.insert(naughty.config.mapping, {{appname = "Spotify"}, naughty.config.presets.spotify})
--- }}}
 
 -- Autostart
 awful.spawn.with_shell("compton")
