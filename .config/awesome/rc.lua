@@ -60,7 +60,7 @@ beautiful.init("/home/pertz/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "x-terminal-emulator" -- Default terminal
-terminal = "alacritty" or "wezterm"
+terminal = "wezterm" or "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -78,9 +78,9 @@ awful.layout.layouts = {
   --awful.layout.suit.tile.left,
   --awful.layout.suit.tile.bottom,
   --awful.layout.suit.tile.top,
-  --awful.layout.suit.fair,
+  awful.layout.suit.fair,
   --awful.layout.suit.fair.horizontal,
-  --awful.layout.suit.spiral,
+  awful.layout.suit.spiral,
   --awful.layout.suit.spiral.dwindle,
   --awful.layout.suit.max,
   --awful.layout.suit.max.fullscreen,
@@ -198,7 +198,7 @@ awful.screen.connect_for_each_screen(function(s)
 
   -- Each screen has its own tag table.
   -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-  awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1]) -- LESS IS MORE
+  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1]) -- MORE IS MORE
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -407,6 +407,8 @@ clientkeys = gears.table.join(
       c:raise()
     end,
     { description = "(un)maximize horizontally", group = "client" }),
+
+    -- VOLUME CONTROL
     awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 2%+", false) end),
     awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse sset Master 2%-", false) end),
     awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer -D pulse sset Master toggle", false) end)
@@ -507,6 +509,9 @@ awful.rules.rules = {
         "pinentry",
       },
       class = {
+        "KeePassXC",
+        "PulseAudio Volume Control",
+        "Volume Control",
         "Arandr",
         "Blueman-manager",
         "Gpick",
