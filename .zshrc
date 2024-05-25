@@ -113,12 +113,10 @@ fi
 # alias lla='ls -alF'
 # alias la='ls -A'
 # alias l='ls -CF'
-
-alias ls='eza'
-alias ll='eza -l'
-alias lla='eza -alF'
-alias la='ls -A'
-alias l='eza -CF'
+alias ls='eza --color always --group-directories-first --git --git-repos'
+alias ll='eza -l --icons --color always --group-directories-first --git --git-repos'
+alias lla='eza -alF --icons --color always --group-directories-first --git --git-repos'
+alias la='ls -A --color always --group-directories-first --git --git-repos'
 
 alias bat='batcat'
 
