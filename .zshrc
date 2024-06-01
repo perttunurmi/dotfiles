@@ -146,7 +146,7 @@ setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)"
 
 alias weather='curl "wttr.in/Jyväskylä"'
 alias battery='cat /sys/class/power_supply/BAT0/capacity'
-alias monitor='xrandr --output DisplayPort-0 --mode 1920x1080 --rate 240'
+alias monitor='xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240'
 
 export PATH="$PATH:/opt/nvim/"
 source ~/.git-prompt.sh
