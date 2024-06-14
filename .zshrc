@@ -125,8 +125,6 @@ alias ll='eza -l --icons --color always --group-directories-first --git --git-re
 alias lla='eza -alF --icons --color always --group-directories-first --git --git-repos'
 alias la='ls -A --color always --group-directories-first --git --git-repos'
 
-alias bat='batcat'
-
 export EDITOR='vim'
 export VISUAL='vim'
 #set -o vi
