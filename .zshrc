@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=5001
-SAVEHIST=5001
+HISTSIZE=1000000
+SAVEHIST=1000000
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -153,17 +153,27 @@ alias weather='curl "wttr.in/Jyväskylä"'
 
 #============================================================================#
 
-# Colored LESS
-# export LESS_TERMCAP_mb=$'\e[1;32m'
-# export LESS_TERMCAP_md=$'\e[1;32m'
-# export LESS_TERMCAP_me=$'\e[0m'
-# export LESS_TERMCAP_se=$'\e[0m'
-# export LESS_TERMCAP_so=$'\e[01;33m'
-# export LESS_TERMCAP_ue=$'\e[0m'
-# export LESS_TERMCAP_us=$'\e[1;4;31m'
-
 export PAGER='less'
 export LESS='-R'
+
+# Get color support for 'less'
+#export LESS="--RAW-CONTROL-CHARS"
+
+# Use colors for less, man, etc.
+#[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+
+# Have less display colours
+# from: https://wiki.archlinux.org/index.php/Color_output_in_console#man
+export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
+export LESS_TERMCAP_md=$'\e[1;33m'     # begin blink
+export LESS_TERMCAP_so=$'\e[01;44;37m' # begin reverse video
+export LESS_TERMCAP_us=$'\e[01;37m'    # begin underline
+export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
+export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
+export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
+export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
+
+export MANPAGER='less -s -M +Gg'
 
 alias cd=z
 
