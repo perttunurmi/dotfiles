@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=5001
-SAVEHIST=5001
+HISTSIZE=1000000
+SAVEHIST=1000000
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -20,56 +20,63 @@ compinit
 _comp_options+=(globdots)
 
 
-# User configuration
+# =============================================================================
+#
+# Commands for zoxide. Disable these using --no-cmd.
+#
 
-####################################################################################################################################################
-
-_z_cd() {
-    cd "$@" || return "$?"
-
-    if [ "$_ZO_ECHO" = "1" ]; then
-        echo "$PWD"
-    fi
+function z() {
+    __zoxide_z "$@"
 }
 
-z() {
-    if [ "$#" -eq 0 ]; then
-        _z_cd ~
-    elif [ "$#" -eq 1 ] && [ "$1" = '-' ]; then
-        if [ -n "$OLDPWD" ]; then
-            _z_cd "$OLDPWD"
-        else
-            echo 'zoxide: $OLDPWD is not set'
-            return 1
+function zi() {
+    __zoxide_zi "$@"
+}
+
+# Completions.
+if [[ -o zle ]]; then
+    __zoxide_result=''
+
+    function __zoxide_z_complete() {
+        # Only show completions when the cursor is at the end of the line.
+        # shellcheck disable=SC2154
+        [[ "${#words[@]}" -eq "${CURRENT}" ]] || return 0
+
+        if [[ "${#words[@]}" -eq 2 ]]; then
+            # Show completions for local directories.
+            _files -/
+        elif [[ "${words[-1]}" == '' ]]; then
+            # Show completions for Space-Tab.
+            # shellcheck disable=SC2086
+            __zoxide_result="$(\command zoxide query --exclude "$(__zoxide_pwd || \builtin true)" --interactive -- ${words[2,-1]})" || __zoxide_result=''
+
+            # Bind '\e[0n' to helper function.
+            \builtin bindkey '\e[0n' '__zoxide_z_complete_helper'
+            # Send '\e[0n' to console input.
+            \builtin printf '\e[5n'
         fi
-    else
-        _zoxide_result="$(zoxide query -- "$@")" && _z_cd "$_zoxide_result"
-    fi
-}
 
-zi() {
-    _zoxide_result="$(zoxide query -i -- "$@")" && _z_cd "$_zoxide_result"
-}
+        # Report that the completion was successful, so that we don't fall back
+        # to another completion function.
+        return 0
+    }
 
+    function __zoxide_z_complete_helper() {
+        if [[ -n "${__zoxide_result}" ]]; then
+            # shellcheck disable=SC2034,SC2296
+            BUFFER="z ${(q-)__zoxide_result}"
+            \builtin zle reset-prompt
+            \builtin zle accept-line
+        else
+            \builtin zle reset-prompt
+        fi
+    }
+    \builtin zle -N __zoxide_z_complete_helper
 
-alias za='zoxide add'
+    [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete z
+fi
 
-alias zq='zoxide query'
-alias zqi='zoxide query -i'
-
-alias zr='zoxide remove'
-zri() {
-    _zoxide_result="$(zoxide query -i -- "$@")" && zoxide remove "$_zoxide_result"
-}
-
-
-_zoxide_hook() {
-    zoxide add "$(pwd -L)"
-}
-
-chpwd_functions=(${chpwd_functions[@]} "_zoxide_hook")
-
-###############################################################################################################
+# =============================================================================
 
 
 stty stop undef         # Disable ctrl-s to freeze terminal.
@@ -81,7 +88,7 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
  # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then export EDITOR='vim'
@@ -106,7 +113,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 # alias ll='ls -l'
@@ -117,8 +124,6 @@ alias ls='eza --color always --group-directories-first --git --git-repos'
 alias ll='eza -l --icons --color always --group-directories-first --git --git-repos'
 alias lla='eza -alF --icons --color always --group-directories-first --git --git-repos'
 alias la='ls -A --color always --group-directories-first --git --git-repos'
-
-alias bat='batcat'
 
 export EDITOR='vim'
 export VISUAL='vim'
@@ -145,10 +150,36 @@ PROMPT='${userpart}%F{blue}%~%F{red}${vcs_info_msg_0_}%f$ '
 setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)")%f]\$ '
 
 alias weather='curl "wttr.in/Jyväskylä"'
-alias battery='cat /sys/class/power_supply/BAT0/capacity'
-alias monitor='xrandr --output DisplayPort-1 --mode 1920x1080 --rate 240'
 
+#============================================================================#
+
+export PAGER='less'
+export LESS='-R'
+
+# Get color support for 'less'
+#export LESS="--RAW-CONTROL-CHARS"
+
+# Use colors for less, man, etc.
+#[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+
+# Have less display colours
+# from: https://wiki.archlinux.org/index.php/Color_output_in_console#man
+export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
+export LESS_TERMCAP_md=$'\e[1;33m'     # begin blink
+export LESS_TERMCAP_so=$'\e[01;44;37m' # begin reverse video
+export LESS_TERMCAP_us=$'\e[01;37m'    # begin underline
+export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
+export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
+export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
+export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
+
+export MANPAGER='less -s -M +Gg'
+
+alias cd=z
+
+eval "$(zoxide init zsh)"
 export PATH="$PATH:/opt/nvim/"
 source ~/.git-prompt.sh
 # Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

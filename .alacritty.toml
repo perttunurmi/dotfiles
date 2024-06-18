@@ -19,25 +19,32 @@
 # https://github.com/alacritty/alacritty/tree/master#configuration
 
 import = [
-    "~/.config/alacritty/themes/themes/.toml"
+    #"~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml"
+    #"~/.config/alacritty/themes/themes/alabaster_dark.toml"
+    #"~/.config/alacritty/themes/themes/tokyo-night.toml"
+    #"~/.config/alacritty/themes/themes/tokyo-night-storm.toml"
+    #"~/.config/alacritty/themes/themes/github_dark_default.toml"
 ]
 
+[shell]
+program = "/bin/zsh"
+
 [window]
-
-opacity = 0.99
-#padding.x = 10
-#padding.y = 10
-
+opacity = 1
+decorations_theme_variant = "None" 
+padding.x = 0
+padding.y = 0
 decorations = "Full"
-decorations_theme_variant = "Dark" #"Light" 
+#decorations_theme_variant = "Dark"
+#decorations_theme_variant = "Light" 
+
 
 [font]
-
 normal.family = "Hack Nerd Font"
 bold.family = "Hack Nerd Font"
 italic.family = "Hack Nerd Font"
 bold_italic.family = "Hack Nerd Font"
-size = 15
+size = 16.5
 
 # Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
 # Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a 

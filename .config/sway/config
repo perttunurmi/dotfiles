@@ -28,6 +28,7 @@ for_window [title = "Administrator privileges required"] floating enable
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $mod Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -40,7 +41,7 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu wofi --show run
+set $menu rofi -show drun
 
 
 include /etc/sway/config-vars.d/*
@@ -269,7 +270,7 @@ bindsym $ps4 exec grim -g "$(slurp)" $psf
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    font pango:Ubuntu 10
+    font pango:Ubuntu 13
     position top
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
