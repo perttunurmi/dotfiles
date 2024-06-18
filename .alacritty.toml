@@ -19,11 +19,7 @@
 # https://github.com/alacritty/alacritty/tree/master#configuration
 
 import = [
-    #"~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml"
-    #"~/.config/alacritty/themes/themes/alabaster_dark.toml"
-    #"~/.config/alacritty/themes/themes/tokyo-night.toml"
-    #"~/.config/alacritty/themes/themes/tokyo-night-storm.toml"
-    #"~/.config/alacritty/themes/themes/github_dark_default.toml"
+    "~/.config/alacritty/themes/themes/pepe.toml"
 ]
 
 [shell]
@@ -41,9 +37,9 @@ decorations = "Full"
 
 [font]
 normal.family = "Hack Nerd Font"
-bold.family = "Hack Nerd Font"
-italic.family = "Hack Nerd Font"
-bold_italic.family = "Hack Nerd Font"
+bold.family = "JetBrains Mono NL"
+italic.family = "RobotoMono Nerd Font"
+bold_italic.family = "RobotoMono Nerd Font"
 size = 16.5
 
 # Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
