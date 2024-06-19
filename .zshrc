@@ -183,3 +183,6 @@ source ~/.git-prompt.sh
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Created by `pipx` on 2024-06-18 19:11:07
+export PATH="$PATH:/home/pepe/.local/bin"
