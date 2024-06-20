@@ -176,6 +176,7 @@ export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
 export MANPAGER='less -s -M +Gg'
 
 alias cd=z
+alias todo='nvim ~/.todo.md'
 
 eval "$(zoxide init zsh)"
 export PATH="$PATH:/opt/nvim/"
