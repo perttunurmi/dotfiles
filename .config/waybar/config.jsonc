@@ -24,10 +24,10 @@
         // "cpu",
         // "memory",
         // "temperature",
-        // "backlight",
+        "backlight",
         // "keyboard-state",
         // "sway/language",
-        // "battery",
+        "battery",
         // "battery#bat2",
         "clock",
         "tray"
