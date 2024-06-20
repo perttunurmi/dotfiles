@@ -1,39 +1,15 @@
 # $HOME/.config/alacritty/alacritty.toml
-# by Rito Ghosh 2023-10-06
-
-# Alacritty now uses TOML formatting for its config files.
-# This is a simple example.
-
-# There are the specification here: https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd
-# It is not obvious how it translates to TOML. But it is extremely straightforward.
-
-# example: WINDOW, COLORS, etc. are tables, and should be represented as [window], [colors], respectively.
-# specifics of variables go under them. e.g.- look under "dynamic_padding" under-
-# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#window
-# write `dynamic_padding = true` (without backticks -`) under the table [window]
-# for variables with multiple values, use "dotted keys". Like setting `padding.x = 5` under [window].
-# This is simple. If not clear, do several trials and errors.
-
-# Below is my initial set-up. The TOML homepage (https://toml.io/en/v1.0.0) was very helpful in figuring this out. 
-# I put the file alacritty.toml in $HOME/.config/alacritty. However it can be kept anywhere among the places mentioned in
-# https://github.com/alacritty/alacritty/tree/master#configuration
-
-import = [
-    "~/.config/alacritty/themes/themes/pepe.toml"
-]
+import = ["~/.config/alacritty/themes/themes/pepe.toml"]
 
 [shell]
 program = "/bin/zsh"
 
 [window]
 opacity = 0.85
-decorations_theme_variant = "None" 
+decorations_theme_variant = "Dark"
 padding.x = 0
 padding.y = 0
 decorations = "Full"
-#decorations_theme_variant = "Dark"
-#decorations_theme_variant = "Light" 
-
 
 [font]
 normal.family = "Hack Nerd Font"
@@ -41,11 +17,6 @@ bold.family = "JetBrains Mono NL"
 italic.family = "RobotoMono Nerd Font"
 bold_italic.family = "RobotoMono Nerd Font"
 size = 16.5
-
-# Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
-# Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a 
-# small box when a HEX is detected by the editor.
-
 
 [mouse]
 hide_when_typing = true

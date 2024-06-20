@@ -21,11 +21,8 @@ _comp_options+=(globdots)
 
 
 # =============================================================================
-#
-# Commands for zoxide. Disable these using --no-cmd.
-#
 
-function z() {
+function cd() {
     __zoxide_z "$@"
 }
 
@@ -78,7 +75,6 @@ fi
 
 # =============================================================================
 
-
 stty stop undef         # Disable ctrl-s to freeze terminal.
 
 # Enable colors and change prompt:
@@ -120,13 +116,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # alias lla='ls -alF'
 # alias la='ls -A'
 # alias l='ls -CF'
-alias ls='eza --color always --group-directories-first --git --git-repos'
-alias ll='eza -l --icons --color always --group-directories-first --git --git-repos'
-alias lla='eza -alF --icons --color always --group-directories-first --git --git-repos'
-alias la='ls -A --color always --group-directories-first --git --git-repos'
 
-export EDITOR='vim'
-export VISUAL='vim'
 #set -o vi
 export KEYTIMEOUT=1
 
@@ -150,40 +140,39 @@ PROMPT='${userpart}%F{blue}%~%F{red}${vcs_info_msg_0_}%f$ '
 setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)")%f]\$ '
 
 alias weather='curl "wttr.in/Jyväskylä"'
+alias todo='nvim ~/.todo.md'
+alias ls='eza --color always --group-directories-first --git --git-repos'
+alias ll='eza -l --icons --color always --group-directories-first --git --git-repos'
+alias lla='eza -alF --icons --color always --group-directories-first --git --git-repos'
+alias la='ls -A --color always --group-directories-first --git --git-repos'
 
 #============================================================================#
 
+eval "$(zoxide init zsh)"
+
+export PATH="$PATH:/opt/nvim/"
+export MANPAGER='less -s -M +Gg'
 export PAGER='less'
 export LESS='-R'
-
 # Get color support for 'less'
 #export LESS="--RAW-CONTROL-CHARS"
-
 # Use colors for less, man, etc.
 #[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+export LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
+export LESS_TERMCAP_md=$(tput bold; tput setaf 6)
+export LESS_TERMCAP_me=$(tput sgr0)
+export LESS_TERMCAP_so=$(tput bold; tput setaf 7; tput setab 4)
+export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 1)
+export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+export LESS_TERMCAP_mr=$(tput rev)
+export LESS_TERMCAP_mh=$(tput dim)
+export LESS_TERMCAP_ZN=$(tput ssubm)
+export LESS_TERMCAP_ZV=$(tput rsubm)
+export LESS_TERMCAP_ZO=$(tput ssupm)
+export LESS_TERMCAP_ZW=$(tput rsupm)
+export GROFF_NO_SGR=1
 
-# Have less display colours
-# from: https://wiki.archlinux.org/index.php/Color_output_in_console#man
-export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
-export LESS_TERMCAP_md=$'\e[1;33m'     # begin blink
-export LESS_TERMCAP_so=$'\e[01;44;37m' # begin reverse video
-export LESS_TERMCAP_us=$'\e[01;37m'    # begin underline
-export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
-export LESS_TERMCAP_se=$'\e[0m'        # reset reverse video
-export LESS_TERMCAP_ue=$'\e[0m'        # reset underline
-export GROFF_NO_SGR=1                  # for konsole and gnome-terminal
-
-export MANPAGER='less -s -M +Gg'
-
-alias cd=z
-alias todo='nvim ~/.todo.md'
-
-eval "$(zoxide init zsh)"
-export PATH="$PATH:/opt/nvim/"
 source ~/.git-prompt.sh
-# Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Created by `pipx` on 2024-06-18 19:11:07
-export PATH="$PATH:/home/pepe/.local/bin"

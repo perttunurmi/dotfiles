@@ -1,19 +1,19 @@
 [credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
+helper = !/usr/bin/gh auth git-credential
 [user]
-	email = perttu.nurmi+github@gmail.com
+email = perttu.nurmi+github@gmail.com
 [color]
-	diff = auto
-	status = auto
-  branch = auto
-  interactive = auto
-	ui = true
-  pager = true
+diff = auto
+status = auto
+branch = auto
+interactive = auto
+ui = true
+pager = true
 
 [color "status"]
-  added = green
-  changed = red bold
-  untracked = magenta bold
+added = green
+changed = red bold
+untracked = magenta bold
 
 [color "branch"]
-  remote = yellow
+remote = yellow
