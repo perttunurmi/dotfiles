@@ -124,13 +124,14 @@ bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@
 input * {
     xkb_layout "us(altgr-intl)"
     accel_profile "flat"
-    pointer_accel 0.5
+    pointer_accel 0
 }
 
 
 
 ### EXEC ###
 exec_always '~/.config/sway/scripts/waybar.sh'
+exec_always '~/.config/sway/scripts/import-gsettings.sh'
 exec_always autotiling
 exec_always nm-applet
 exec keepassxc
