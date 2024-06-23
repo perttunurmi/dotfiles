@@ -19,6 +19,7 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
+autoload -U colors && colors
 
 # =============================================================================
 
@@ -77,10 +78,6 @@ fi
 
 stty stop undef         # Disable ctrl-s to freeze terminal.
 
-# Enable colors and change prompt:
-autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
 export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -122,22 +119,20 @@ export KEYTIMEOUT=1
 
 
 # Define the userpart section of the prompt
-local userpart='%F{green}%n@%m%f:'
+# local userpart='%F{green}%n@%m%f:'
 
-# autoload -Uz vcs_info
-# precmd_vcs_info() { vcs_info }
-# precmd_functions+=( precmd_vcs_info )
 # setopt prompt_subst
 # RPROMPT='${vcs_info_msg_0_}'
 # PROMPT='${vcs_info_msg_0_}%# '
 # zstyle ':vcs_info:git:*' formats '%b'
 
 # Combine all the parts to form the PS1 prompt
-PROMPT='${userpart}%F{blue}%~%F{red}${vcs_info_msg_0_}%f$ '
+# PROMPT='${userpart}%F{blue}%~%F{red}${vcs_info_msg_0_}%f$ '
 #setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m %F{blue}%c%F{red}$(__git_ps1 " (%s)")%f]\$ '
 #ZSH:  precmd () { __git_ps1 "%n" ":%~$ " "|%s" }
 #PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)")%f]\$ '
+
 
 alias weather='curl "wttr.in/Jyväskylä"'
 alias todo='nvim ~/.todo.md'
@@ -155,9 +150,6 @@ export MANPAGER='less -s -M +Gg'
 export PAGER='less'
 export LESS='-R'
 # Get color support for 'less'
-#export LESS="--RAW-CONTROL-CHARS"
-# Use colors for less, man, etc.
-#[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
 export LESS_TERMCAP_md=$(tput bold; tput setaf 6)
 export LESS_TERMCAP_me=$(tput sgr0)
@@ -172,6 +164,9 @@ export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 source ~/.git-prompt.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

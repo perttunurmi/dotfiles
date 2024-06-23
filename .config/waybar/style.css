@@ -153,17 +153,17 @@ button:hover {
 
 #power-profiles-daemon.performance {
 	/* background-color: #f53c3c; */
-	color: #ffffff;
+	color: magenta;
 }
 
 #power-profiles-daemon.balanced {
 	/* background-color: #2980b9; */
-	color: #ffffff;
+	color: blue;
 }
 
 #power-profiles-daemon.power-saver {
 	/* background-color: #2ecc71; */
-	color: #000000;
+	color: green;
 }
 
 label:focus {
@@ -198,21 +198,24 @@ label:focus {
 #pulseaudio {
 	/* background-color: #f1c40f; */
 	color: #000000;
+	color: white;
 }
 
 #pulseaudio.muted {
 	/* background-color: #90b1b1; */
 	color: #2a5c45;
-	color: white;
+	color: red;
 }
 
 #wireplumber {
 	background-color: #fff0f5;
 	color: #000000;
+	color: white;
 }
 
 #wireplumber.muted {
 	background-color: #f53c3c;
+	color: white;
 }
 
 #custom-media {

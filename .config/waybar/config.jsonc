@@ -18,7 +18,7 @@
     "modules-right": [
         // "mpd",
         // "idle_inhibitor",
-        // "pulseaudio",
+        "pulseaudio",
         // "network",
         // "power-profiles-daemon",
         // "cpu",
@@ -29,14 +29,14 @@
         // "sway/language",
         "battery",
         // "battery#bat2",
-        "clock",
-        "tray"
+        "tray",
+        "clock"
     ],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
     //     "format": "{name}: {icon}",
     //     "format-icons": {
     //         "1": "",
@@ -48,7 +48,7 @@
     //         "focused": "",
     //         "default": ""
     //     }
-    // },
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -59,7 +59,7 @@
         }
     },
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        "format": "{}"
     },
     "sway/scratchpad": {
         // "format": "{icon} {count}",
@@ -103,13 +103,15 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
-        "spacing": 10
+        "icon-size": 21,
+        "icon-size": 25,
+        "spacing": 10,
+        "show-passive-items": true
     },
     "clock": {
         "format": "{:%H:%M %d-%m-%Y}",
         // "timezone": "America/New_York",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        // "tooltip-format": "<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
@@ -175,8 +177,8 @@
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-muted": "{format_source}",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -197,7 +199,7 @@
             "spotify": "",
             "default": "🎜"
         },
-        "escape": true,
+       "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
