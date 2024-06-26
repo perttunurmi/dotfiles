@@ -27,7 +27,7 @@ set $window rofi -show window
 ### DISPLAY ###
 # display/monitor swaymsg -t get_outputs
 output * {
-    background ~/Pictures/Wallpapers/Darksouls.png fill
+    background ~/pictures/Wallpapers/Darksouls.png fill
     resolution 1920x1080@60Hz
     }
 output $display1 resolution 1920x1080@239Hz

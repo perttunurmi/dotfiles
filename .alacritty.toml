@@ -5,7 +5,7 @@ import = ["~/.config/alacritty/themes/themes/pepe.toml"]
 program = "/bin/zsh"
 
 [window]
-opacity = 0.85
+# opacity = 0.85
 decorations_theme_variant = "Dark"
 padding.x = 0
 padding.y = 0

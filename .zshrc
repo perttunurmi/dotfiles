@@ -83,6 +83,10 @@ export MANPATH="/usr/local/man:$MANPATH"
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+export OPENER='nvim'
+export VISUAL='nvim'
+export EDITOR='nvim'
+
  # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then export EDITOR='vim'
 else
@@ -136,6 +140,7 @@ setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)"
 
 alias weather='curl "wttr.in/Jyväskylä"'
 alias todo='nvim ~/.todo.md'
+alias bm='nvim /workspaces/temp/bookmarks.test'
 alias ls='eza --color always --group-directories-first --git --git-repos'
 alias ll='eza -l --icons --color always --group-directories-first --git --git-repos'
 alias lla='eza -alF --icons --color always --group-directories-first --git --git-repos'
