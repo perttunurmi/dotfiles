@@ -1,0 +1,10 @@
+//@theme "/usr/share/rofi/themes/sidebar.rasi"
+//@theme "/usr/share/rofi/themes/Monokai.rasi"
+
+//@theme "/usr/share/rofi/themes/dmenu.rasi"
+
+//@theme "/usr/share/rofi/themes/android_notification.rasi"
+
+//@theme "/usr/share/rofi/themes/fullscreen-preview.rasi"
+
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
