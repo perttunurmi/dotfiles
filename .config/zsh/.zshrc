@@ -79,12 +79,6 @@ fi
 
 stty stop undef         # Disable ctrl-s to freeze terminal.
 
-alias grep='grep --color=always'
-alias ls='eza --color always --group-directories-first --git --git-repos'
-alias ll='eza -l --color always --group-directories-first --git --git-repos'
-alias lla='eza -alF --color always --group-directories-first --git --git-repos'
-alias la='eza -A --color always --group-directories-first --git --git-repos'
-
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export KEYTIMEOUT=1
@@ -92,6 +86,11 @@ setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)"
 
 #============================================================================#
 
+alias grep='grep --color=always'
+alias ls='eza --color=always --group-directories-first --git --git-repos'
+alias ll='eza -l --color=always --group-directories-first --git --git-repos'
+alias lla='eza -alF --color=always --group-directories-first --git --git-repos'
+alias la='eza -A --color=always --group-directories-first --git --git-repos'
 
 
 source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion

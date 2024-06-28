@@ -20,3 +20,5 @@ untracked = magenta bold
 remote = yellow
 
 
+[core]
+editor = nvim
