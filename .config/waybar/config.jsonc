@@ -4,7 +4,7 @@
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 35, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 1, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "sway/workspaces",
@@ -142,12 +142,15 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        // "format-charging": "{capacity}% ",
+        "format-charging": "+{capacity}%",
+        // "format-plugged": "{capacity}% ",
+        "format-plugged": "{capacity}%",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
+        // "format-icons": ["[]", "[+]", "[++]", "[+++]", "[++++]"]
     },
     "battery#bat2": {
         "bat": "BAT2"

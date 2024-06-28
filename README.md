@@ -16,49 +16,16 @@ tmux source "~/.tmux.conf"
 
 ### ZSH
 ```
-sudo apt install zsh
-sudo apt install zsh-syntax-highlighting
+sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions fzf eza zoxide
 ```
 
-### Rust cargo
+### Neovim
 ```
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-### Wez
-```
-curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
-echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+sudo pacman -S nvim
+git clone https://github.com/PERTZ42/nvim
 ```
 
+### Sway
 ```
-sudo apt update
-sudo apt install wezterm
-```
-
-### EZA
-```
-cargo install eza
-```
-
-### NVIM
-```
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
-export PATH="$PATH:/opt/nvim-linux64/bin"
-```
-
-```
-sudo apt install git curl wget unzip tar gzip cargo npm cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-git clone --recurse-submodules "https://github.com/PERTZ42/nvim"
-```
-
-```
-git submodule update --recursive --remote
-```
-
-### Extra
-```
-sudo apt install rofi pavucontrol
+sudo pacman -S sway swaybg rofi pavucontrol foot btop
 ```
