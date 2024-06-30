@@ -5,8 +5,9 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term foot
 set $term alacritty
+set $term foot
+set $term footclient
 set $filemanager dolphin
 # set $browser brave-beta
 # needs swaylock-effects
@@ -149,6 +150,7 @@ bindsym $mod+Mod1+l exec $lock
 # if accel.default == flat { year_of_the_linux_desktop = true; }
 input * {
     xkb_layout "us(altgr-intl)"
+    xkb_options caps:escape
     accel_profile "flat"
     pointer_accel 0
 }
@@ -175,6 +177,7 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 exec_always '~/.config/sway/scripts/waybar.sh'
 #exec_always '~/.config/sway/scripts/import-gsettings.sh'
 exec_always autotiling
+exec foot --server
 exec nm-applet
 exec keepassxc
 # exec wl-paste --watch clapboard store
