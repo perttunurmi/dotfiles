@@ -150,7 +150,7 @@ input * {
     xkb_layout "us(altgr-intl)"
     xkb_options caps:escape
     accel_profile "flat"
-    pointer_accel 0
+    pointer_accel -0.10
 }
 
 input 1267:32:Elan_TrackPoint {
