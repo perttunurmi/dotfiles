@@ -4,6 +4,7 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 unsetopt beep
 bindkey -e
+export KEYTIMEOUT=1 #10ms
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/pertz/.zshrc'
@@ -24,7 +25,7 @@ autoload -U colors && colors
 # Zoxide
 # =============================================================================
 
-function cd() {
+function z() {
     __zoxide_z "$@"
 }
 
@@ -81,8 +82,25 @@ stty stop undef         # Disable ctrl-s to freeze terminal.
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-export KEYTIMEOUT=1
 setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)")%f]\$ '
+
+#============================================================================#
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp -uq)"
+    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
+bindkey -s '^o' '^ulfcd\n'
+bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
+bindkey '^[[P' delete-char
+
 
 #============================================================================#
 
@@ -91,6 +109,8 @@ alias ls='eza --color=always --group-directories-first --git --git-repos'
 alias ll='eza -l --color=always --group-directories-first --git --git-repos'
 alias lla='eza -alF --color=always --group-directories-first --git --git-repos'
 alias la='eza -A --color=always --group-directories-first --git --git-repos'
+alias cd='z'
+
 
 
 source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion
@@ -99,4 +119,4 @@ eval "$(zoxide init zsh)"
 source ~/.config/zsh/less-termcap
 source ~/.config/zsh/.git-prompt.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

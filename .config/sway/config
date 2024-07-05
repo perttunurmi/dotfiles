@@ -7,9 +7,9 @@ set $up k
 set $right l
 set $term alacritty
 set $term foot
-set $term footclient
+set $term footclient 
 set $filemanager dolphin
-# set $browser brave-beta
+set $browser brave-beta
 # needs swaylock-effects
 set $lock 'swaylock -f -c 000000 -l --fade-in 5 --screenshot --effect-pixelate 10 --effect-greyscale --clock --indicator'
 set $volume_down 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2 && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
@@ -18,7 +18,6 @@ set $colorpicker 'hyprpicker | wl-copy'
 
 
 # run/menu/rofi
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu rofi -show drun
 # window selector (needs rofi-wayland)
 set $window rofi -show window
@@ -59,8 +58,7 @@ mode "+" {
     bindsym $left+Mod1 move left 20px
     bindsym $down+Mod1 move down 20px
     bindsym $up+Mod1 move up 20px
-    bindsym $right+Mod1 move right 20px
-    bindsym Return mode "default"
+    bindsym $right+Mod1 move right 20px bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym ctrl+c mode "default"
     bindsym $mod+r mode "default"
@@ -176,10 +174,13 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 ### EXEC ###
 exec_always '~/.config/sway/scripts/waybar.sh'
 #exec_always '~/.config/sway/scripts/import-gsettings.sh'
+exec '~/.config/sway/scripts/autosuspend'
+exec_always syncthing
 exec_always autotiling
 exec foot --server
 exec nm-applet
 exec keepassxc
+
 # exec wl-paste --watch clapboard store
 # exec wl-paste -p --watch clapboard store
 # bindsym XF86Favorites exec clapboard
