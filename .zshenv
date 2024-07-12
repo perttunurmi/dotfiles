@@ -5,3 +5,4 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 
 export work=$HOME/workspaces/
+export PATH="$HOME/.emacs.d/bin:$PATH"

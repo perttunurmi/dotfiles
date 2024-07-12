@@ -144,13 +144,14 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec $colorpicker
 bindsym $mod+Mod1+l exec $lock
+bindsym $mod+Mod1+c exec 'emacs --chdir ~/media/share/orgfiles/ refile.org'
 
 # if accel.default == flat { year_of_the_linux_desktop = true; }
 input * {
     xkb_layout "us(altgr-intl)"
     xkb_options caps:escape
     accel_profile "flat"
-    pointer_accel -0.10
+    # pointer_accel 0
 }
 
 input 1267:32:Elan_TrackPoint {
@@ -174,7 +175,7 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 ### EXEC ###
 exec_always '~/.config/sway/scripts/waybar.sh'
 #exec_always '~/.config/sway/scripts/import-gsettings.sh'
-exec '~/.config/sway/scripts/autosuspend'
+exec_always '~/.config/sway/scripts/autosuspend'
 exec_always syncthing
 exec_always autotiling
 exec foot --server
