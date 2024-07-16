@@ -1,6 +1,0 @@
-DISABLE_TEXT="SUBSYSTEM=="usb", ATTRS{idVendor}=="04f3", ATTRS{idProduct}=="2398", ATTR{authorized}="0""
-
-echo $DISABLE_TEXT | sudo tee -a /etc/udev/rules.d/80-touchscreen.rules
-sudo udevadm control --reload-rules && sudo udevadm trigger
-
-echo "Touch screen disabled!"
