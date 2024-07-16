@@ -1,31 +1,25 @@
-### Essentials
-```
-sudo apt install curl wget build-essential zsh cmake gcc g++ git gh zoxide fzf btop vim compton nitrogen
-```
+# My personal dotfiles
 
-### Dotfiles
+Should propably move over to using stow, but I am too lazy right now and besides at the moment this repo is manly for my T480s.
+
+### Clone this repo
 ```
 git clone https://github.com/PERTZ42/.dotfiles
 ```
 
-### TMUX
+### tpm is needed for tmux
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux source "~/.tmux.conf"
 ```
 
-### ZSH
+### zsh is gonna cry without these
 ```
 sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions fzf eza zoxide
 ```
 
-### Neovim
+### neovim is forked from kickstart
 ```
-sudo pacman -S nvim
-git clone https://github.com/PERTZ42/nvim
+git clone https://github.com/perttunurmi/nvim
 ```
 
-### Sway
-```
-sudo pacman -S sway swaybg rofi pavucontrol foot btop
-```
+Feel free to post on issues if something should have been done differently.
