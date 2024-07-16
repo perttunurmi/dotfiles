@@ -18,7 +18,4 @@ set path+=**
 set wildmenu
 set nowrap
 
-
-nnoremap <leader>pv :Ex<Enter>
 nnoremap <leader>s :find *
-nnoremap <leader> :w<Enter>
