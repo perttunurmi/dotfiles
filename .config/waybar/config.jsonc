@@ -21,10 +21,10 @@
         "pulseaudio",
         // "network",
         // "power-profiles-daemon",
-        // "cpu",
-        // "memory",
+        //"cpu",
+        //"memory",
         // "temperature",
-        "backlight",
+        // "backlight",
         // "keyboard-state",
         // "sway/language",
         "battery",
@@ -141,9 +141,9 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-full":"{capacity}% {icon}",
+        "format-charging":"{capacity}% ",
+        "format-plugged":"{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -180,7 +180,7 @@
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": "{format_source}",
         "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-source-muted": " ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -188,7 +188,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [" ", " ", " "]
         },
         "on-click": "pavucontrol"
     },

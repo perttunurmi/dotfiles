@@ -16,27 +16,21 @@ set $volume_down 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2 && paplay /us
 set $volume_up 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.2 && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
 set $colorpicker 'hyprpicker | wl-copy'
 
-
 # run/menu/rofi
 set $menu rofi -show drun
 # window selector (needs rofi-wayland)
 set $window rofi -show window
 
-
-
 ### DISPLAY ###
 # display/monitor swaymsg -t get_outputs
 output * {
     background '~/media/pictures/Wallpapers/arch_nz.png' fill
-    resolution 1920x1080@60Hz
+    resolution 1920x1080@60Hz scale 1.00
     }
 output $display1 resolution 1920x1080@120Hz
 
 # decent for now
 bindsym $mod+m output "HDMI-A-2" enable ; output "eDP-1" disable
-
-
-
 
 ### SCREENLOCK ###
 exec swayidle -w \
@@ -46,8 +40,6 @@ exec swayidle -w \
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-
-
 
 ### MODES ###
 mode "+" {
@@ -64,9 +56,6 @@ mode "+" {
     bindsym $mod+r mode "default"
 }
 
-
-
-
 ### MOVING ###
 bindsym $mod+Shift+$left resize shrink width 20px
 bindsym $mod+Shift+$down resize grow height 20px
@@ -76,8 +65,6 @@ bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-
-
 
 ### Workspaces ### 
 bindsym $mod+1 workspace number 1
@@ -102,8 +89,6 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 # Note: workspaces can have any name you want, not just numbers.
 
-
-
 # different layout styles
 # bindsym $mod+b splith
 # bindsym $mod+v splitv
@@ -121,7 +106,6 @@ bindsym $mod+minus scratchpad show
 #bindsym --whole-window button2 scratchpad show
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
-
 
 ### RANDOM BINDS ###
 bindsym $mod+r mode "+"
@@ -164,13 +148,11 @@ input 1267:32:Elan_Touchpad {
     pointer_accel 0
 }
 
-
 for_window [app_id="nm-applet"] floating enable
 # for_window [app_id="keepassxc"] move container to workspace 8, workspace 8
 for_window [app_id="keepassxc"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
-
-
+for_window [class="Brave-browser-beta"] move container to workspace 2
 
 ### EXEC ###
 exec_always '~/.config/sway/scripts/waybar.sh'
@@ -186,13 +168,14 @@ exec keepassxc
 # exec wl-paste -p --watch clapboard store
 # bindsym XF86Favorites exec clapboard
 
-
 ### SEXY ###
-font pango:Mono 15
+font pango:Mono 12
 # no window title
 default_border pixel 2
 client.focused '#9f1209' '#9f1209' '#ffffff' '#9f1209' "#9f1209"
 hide_edge_borders smart
 focus_follows_mouse yes
+gaps inner 5
+gaps outer 2
 
 include /etc/sway/config.d/*

@@ -111,6 +111,9 @@ alias lla='eza -alF --color=always --group-directories-first --git --git-repos'
 alias la='eza -A --color=always --group-directories-first --git --git-repos'
 alias cd='z'
 
+alias vi='nvim --clean'
+alias vim='nvim'
+
 
 
 source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion
