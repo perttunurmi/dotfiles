@@ -1,13 +1,13 @@
 # My personal dotfiles
 
-Should propably move over to using stow, but I am too lazy right now and besides at the moment this repo is manly for my T480s.
+Should propably move over to using stow, but I am too lazy right now and besides at the moment this repo is mainly for my T480s.
 
 ### Clone this repo
 ```
 git clone https://github.com/PERTZ42/.dotfiles
 ```
 
-### tpm is needed for tmux
+### tpm is needed for tmux config
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
