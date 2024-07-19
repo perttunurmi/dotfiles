@@ -9,7 +9,7 @@ set $term alacritty
 set $term foot
 set $term footclient 
 set $filemanager dolphin
-set $browser brave-beta
+set $browser thorium-browser
 # needs swaylock-effects
 set $lock 'swaylock -f -c 000000 -l --fade-in 5 --screenshot --effect-pixelate 10 --effect-greyscale --clock --indicator'
 set $volume_down 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2 && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
@@ -152,7 +152,8 @@ for_window [app_id="nm-applet"] floating enable
 # for_window [app_id="keepassxc"] move container to workspace 8, workspace 8
 for_window [app_id="keepassxc"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
-for_window [class="Brave-browser-beta"] move container to workspace 2
+for_window [class="Thorium-browser"] move container to workspace 2
+for_window [app_id="thorium-browser"] move container to workspace 2
 
 ### EXEC ###
 exec_always '~/.config/sway/scripts/waybar.sh'
