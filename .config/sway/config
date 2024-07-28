@@ -5,11 +5,9 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term alacritty
-set $term foot
-set $term footclient 
-set $filemanager dolphin
-set $browser thorium-browser
+set $term footclient
+set $filemanager nautilus
+set $browser brave-beta
 # needs swaylock-effects
 set $lock 'swaylock -f -c 000000 -l --fade-in 5 --screenshot --effect-pixelate 10 --effect-greyscale --clock --indicator'
 set $volume_down 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2 && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga'
@@ -34,9 +32,9 @@ bindsym $mod+m output "HDMI-A-2" enable ; output "eDP-1" disable
 
 ### SCREENLOCK ###
 exec swayidle -w \
-         timeout 300 $lock \
+#          timeout 300 $lock \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep $lock
+#          before-sleep $lock
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -154,12 +152,14 @@ for_window [app_id="keepassxc"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [class="Thorium-browser"] move container to workspace 2
 for_window [app_id="thorium-browser"] move container to workspace 2
+for_window [app_id="org.gnome.Nautilus"] floating enable
+for_window [app_id="thorium-browser"] move container to workspace 2
+for_window [app_id="brave-browser-beta"] move container to workspace 2
 
 ### EXEC ###
 exec_always '~/.config/sway/scripts/waybar.sh'
 #exec_always '~/.config/sway/scripts/import-gsettings.sh'
 exec_always '~/.config/sway/scripts/autosuspend'
-exec_always syncthing
 exec_always autotiling
 exec foot --server
 exec nm-applet
@@ -170,13 +170,13 @@ exec keepassxc
 # bindsym XF86Favorites exec clapboard
 
 ### SEXY ###
-font pango:Mono 12
+# font pango:Mono 12
 # no window title
 default_border pixel 2
-client.focused '#9f1209' '#9f1209' '#ffffff' '#9f1209' "#9f1209"
+client.focused '#ffb900' '#ffb900' '#ffffff' '#ffb900' '#ffb900'
 hide_edge_borders smart
 focus_follows_mouse yes
-gaps inner 5
-gaps outer 2
+# gaps inner 5
+# gaps outer 2
 
 include /etc/sway/config.d/*
