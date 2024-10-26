@@ -1,6 +1,7 @@
-picom -r 0 -o 0 -b 
+picom --backend glx &
 nm-applet &
 keepassxc &
+flameshot &
 echo 'auto' > '/sys/bus/usb/devices/1-10/power/control'
 ~/.fehbg &
 
