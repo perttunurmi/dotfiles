@@ -10,6 +10,6 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 
 export XDG_CURRENT_DESKTOP=GNOME
-export BROWSER=thorium-browser
+export BROWSER=brave-beta
 export EDITOR=nvim
 export WINDOW_MANAGER=sway
