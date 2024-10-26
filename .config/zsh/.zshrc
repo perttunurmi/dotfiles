@@ -1,109 +1,113 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.config/zsh/histfile
+HISTSIZE=1000000
+SAVEHIST=1000000
+unsetopt beep
+bindkey -e
+export KEYTIMEOUT=1 #10ms
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/pertz/.zshrc'
 
-# Path to your Oh My Zsh installation.
-export ZSH="$ZDOTDIR/ohmyzsh"
+# autoload -Uz compinit
+# compinit
+# End of lines added by compinstall
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+autoload -U colors && colors
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+autoload -U select-word-style
+select-word-style bash
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Zoxide
+# =============================================================================
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+function z() {
+    __zoxide_z "$@"
+}
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+function zi() {
+    __zoxide_zi "$@"
+}
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+# Completions.
+if [[ -o zle ]]; then
+    __zoxide_result=''
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+    function __zoxide_z_complete() {
+        # Only show completions when the cursor is at the end of the line.
+        # shellcheck disable=SC2154
+        [[ "${#words[@]}" -eq "${CURRENT}" ]] || return 0
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+        if [[ "${#words[@]}" -eq 2 ]]; then
+            # Show completions for local directories.
+            _files -/
+        elif [[ "${words[-1]}" == '' ]]; then
+            # Show completions for Space-Tab.
+            # shellcheck disable=SC2086
+            __zoxide_result="$(\command zoxide query --exclude "$(__zoxide_pwd || \builtin true)" --interactive -- ${words[2,-1]})" || __zoxide_result=''
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+            # Bind '\e[0n' to helper function.
+            \builtin bindkey '\e[0n' '__zoxide_z_complete_helper'
+            # Send '\e[0n' to console input.
+            \builtin printf '\e[5n'
+        fi
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+        # Report that the completion was successful, so that we don't fall back
+        # to another completion function.
+        return 0
+    }
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+    function __zoxide_z_complete_helper() {
+        if [[ -n "${__zoxide_result}" ]]; then
+            # shellcheck disable=SC2034,SC2296
+            BUFFER="z ${(q-)__zoxide_result}"
+            \builtin zle reset-prompt
+            \builtin zle accept-line
+        else
+            \builtin zle reset-prompt
+        fi
+    }
+    \builtin zle -N __zoxide_z_complete_helper
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+    [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete z
+fi
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# =============================================================================
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git zoxide fzf zsh-syntax-highlighting colored-man-pages)
+stty stop undef         # Disable ctrl-s to freeze terminal.
 
-source $ZSH/oh-my-zsh.sh
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)")%f]\$ '
 
-# User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+#============================================================================#
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp -uq)"
+    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+bindkey -s '^o' '^ulfcd\n'
+bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
+bindkey '^[[P' delete-char
 
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+#============================================================================#
 
-# aliases
 alias grep='grep --color=always'
 alias ls='eza --color=always --group-directories-first --git --git-repos'
 alias ll='eza -l --color=always --group-directories-first --git --git-repos'
@@ -115,3 +119,13 @@ alias vi='nvim --clean'
 alias vim='nvim'
 alias cal='cal -m'
 
+
+
+
+source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion
+eval "$(zoxide init zsh)"
+
+source ~/.config/zsh/less-termcap
+source ~/.config/zsh/.git-prompt.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
