@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.config/zsh/histfile
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=1000
+SAVEHIST=1000
 unsetopt beep
 bindkey -e
 export KEYTIMEOUT=1 #10ms
@@ -101,7 +101,7 @@ lfcd () {
     fi
 }
 
-bindkey -s '^o' '^ulfcd\n'
+bindkey -s '^o' 'yazi\n'
 bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
 bindkey '^[[P' delete-char
 
