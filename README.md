@@ -15,7 +15,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ### zsh is gonna cry without these
 ```
 sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions fzf eza zoxide
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ### neovim is forked from kickstart
