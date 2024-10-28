@@ -115,17 +115,28 @@ alias lla='eza -alF --color=always --group-directories-first --git --git-repos'
 alias la='eza -A --color=always --group-directories-first --git --git-repos'
 alias cd='z'
 
-alias vi='nvim --clean'
-alias vim='nvim'
 alias cal='cal -m'
 
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
 
+export work=$HOME/workspaces/
+export PATH="$HOME/.emacs.d/bin:$PATH"
+
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
+
+# export XDG_CURRENT_DESKTOP=GNOME
+export BROWSER=brave-beta
+export EDITOR=nvim
+# export WINDOW_MANAGER=sway
 
 
 source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion
 eval "$(zoxide init zsh)"
 
-source ~/.config/zsh/less-termcap
-source ~/.config/zsh/.git-prompt.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/workspaces/dotfiles/less-termcap
+source ~/workspaces/dotfiles/.git-prompt.sh
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
