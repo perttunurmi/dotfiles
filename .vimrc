@@ -19,3 +19,14 @@ set wildmenu
 set nowrap
 
 nnoremap <leader>s :find *
+
+" plugins
+call plug#begin()
+
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'flazz/vim-colorschemes'
+Plug 'junegunn/fzf.vim'
+Plug 'w0rp/ale'
+
+call plug#end()

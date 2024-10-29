@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.config/zsh/histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
 unsetopt beep
 bindkey -e
 export KEYTIMEOUT=1 #10ms
@@ -116,6 +116,7 @@ alias la='eza -A --color=always --group-directories-first --git --git-repos'
 alias cd='z'
 
 alias cal='cal -m'
+alias vi=vim
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -128,9 +129,11 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 
 # export XDG_CURRENT_DESKTOP=GNOME
-export BROWSER=brave-beta
-export EDITOR=nvim
+export BROWSER=firefox
+export EDITOR=vim
 # export WINDOW_MANAGER=sway
+
+alias cpui='watch -n1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
 
 
 source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion
