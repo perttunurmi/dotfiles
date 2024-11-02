@@ -85,7 +85,7 @@ stty stop undef         # Disable ctrl-s to freeze terminal.
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%~%F{red}$(__git_ps1 "(%s)")%f]\$ '
+setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%1~%F{red}$(__git_ps1 "(%s)")%f]\$ '
 
 
 #============================================================================#
@@ -110,8 +110,8 @@ bindkey '^[[P' delete-char
 
 alias grep='grep --color=always'
 alias ls='eza --color=always --group-directories-first --git --git-repos'
-alias ll='eza -l --color=always --group-directories-first --git --git-repos'
-alias lla='eza -alF --color=always --group-directories-first --git --git-repos'
+alias ll='eza -lh --color=always --group-directories-first --git --git-repos'
+alias lla='eza -alhF --color=always --group-directories-first --git --git-repos'
 alias la='eza -A --color=always --group-directories-first --git --git-repos'
 alias cd='z'
 
@@ -143,3 +143,22 @@ source ~/workspaces/dotfiles/less-termcap
 source ~/workspaces/dotfiles/.git-prompt.sh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/pepe/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/pepe/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/pepe/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/pepe/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+conda activate datatiede
+
+alias datatiede="conda activate datatiede"
