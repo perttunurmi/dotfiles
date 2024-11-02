@@ -1,8 +1,8 @@
 [credential "https://github.com"]
 helper = !/usr/bin/gh auth git-credential
 [user]
-email = perttu.nurmi+github@gmail.com
-name = PERTZ42
+email = perttu.nurmi@gmail.com
+name = perttunurmi
 [color]
 diff = auto
 status = auto
