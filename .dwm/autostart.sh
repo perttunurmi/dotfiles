@@ -3,6 +3,7 @@ nm-applet &
 keepassxc &
 volumeicon &
 flameshot &
+xscreensaver &
 echo 'auto' > '/sys/bus/usb/devices/1-10/power/control'
 xmodmap -e "clear Lock" -e "keycode 0x42 = Escape"
 ~/.fehbg &
