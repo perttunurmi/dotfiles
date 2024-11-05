@@ -1,4 +1,5 @@
 # Lines configured by zsh-newuser-install
+alias fzf='fzf --tmux'
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
@@ -159,6 +160,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-conda activate datatiede
-
+# conda activate datatiede
 alias datatiede="conda activate datatiede"
