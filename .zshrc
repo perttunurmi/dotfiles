@@ -1,5 +1,4 @@
 # Lines configured by zsh-newuser-install
-alias fzf='fzf --tmux'
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
@@ -26,7 +25,22 @@ autoload -U colors && colors
 autoload -U select-word-style
 select-word-style bash
 
-# Zoxide
+# =============================================================================
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/pepe/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then eval "$__conda_setup"
+else
+    if [ -f "/home/pepe/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/pepe/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/pepe/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 # =============================================================================
 
 function z() {
@@ -86,79 +100,46 @@ stty stop undef         # Disable ctrl-s to freeze terminal.
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%1~%F{red}$(__git_ps1 "(%s)")%f]\$ '
-
+# setopt PROMPT_SUBST ; PS1='[%F{green}%n@%m%f:%F{blue}%1~%F{red}$(__git_ps1 "(%s)")%f]\$ '
 
 #============================================================================#
-
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
 
 bindkey -s '^o' 'yazi\n'
 bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
 bindkey '^[[P' delete-char
 
-
 #============================================================================#
 
+alias datatiede="conda activate datatiede"
 alias grep='grep --color=always'
+alias cpui='watch -n1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
 alias ls='eza --color=always --group-directories-first --git --git-repos'
 alias ll='eza -lh --color=always --group-directories-first --git --git-repos'
 alias lla='eza -alhF --color=always --group-directories-first --git --git-repos'
 alias la='eza -A --color=always --group-directories-first --git --git-repos'
+alias mv='mv -i --backup=simple'
 alias cd='z'
-
 alias cal='cal -m'
 alias vi=vim
+
+#============================================================================#
+
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
-
-export work=$HOME/workspaces/
 export PATH="$HOME/.emacs.d/bin:$PATH"
-
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
-
-# export XDG_CURRENT_DESKTOP=GNOME
-export BROWSER=firefox
-export EDITOR=vim
-# export WINDOW_MANAGER=sway
-
-alias cpui='watch -n1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
-
-
-source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion
-eval "$(zoxide init zsh)"
+export EDITOR=nvim
 
 source ~/workspaces/dotfiles/less-termcap
 source ~/workspaces/dotfiles/.git-prompt.sh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/pepe/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/pepe/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/pepe/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/pepe/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+PS1='%F{blue}%1~ %(?.%F{green}.%F{red})>%f '
 
-# conda activate datatiede
-alias datatiede="conda activate datatiede"
+source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion
+eval "$(zoxide init zsh)"
