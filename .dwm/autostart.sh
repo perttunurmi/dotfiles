@@ -1,4 +1,4 @@
-picom --backend glx &
+picom --backend glx --no-vsync &
 nm-applet &
 keepassxc &
 volumeicon &
@@ -10,4 +10,4 @@ xmodmap -e "clear Lock" -e "keycode 0x42 = Escape"
 ~/.fehbg &
 # ~/workspaces/dotfiles/scripts/performance.sh
 
-while true; do xsetroot -name "[$(powerprofilesctl get)][$(cat /sys/class/power_supply/BAT0/capacity)%][$(date +"%F")][$(date +"%H:%M")]"; sleep 1s; done &
+while true; do xsetroot -name "[$(powerprofilesctl get)][$(date +"%F")][$(date +"%H:%M")]"; sleep 1s; done &
