@@ -29,13 +29,14 @@ select-word-style bash
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/pepe/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then eval "$__conda_setup"
+__conda_setup="$('/home/pepe/.config/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
 else
-    if [ -f "/home/pepe/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/pepe/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/pepe/.config/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/pepe/.config/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/pepe/anaconda3/bin:$PATH"
+        export PATH="/home/pepe/.config/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -104,7 +105,6 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 #============================================================================#
 
-bindkey -s '^o' 'yazi\n'
 bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
 bindkey '^[[P' delete-char
 
@@ -120,7 +120,6 @@ alias la='eza -A --color=always --group-directories-first --git --git-repos'
 alias mv='mv -i --backup=simple'
 alias cd='z'
 alias cal='cal -m'
-alias vi=vim
 
 #============================================================================#
 
@@ -136,10 +135,14 @@ export EDITOR=nvim
 
 source ~/workspaces/dotfiles/less-termcap
 source ~/workspaces/dotfiles/.git-prompt.sh
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 PS1='%F{blue}%1~ %(?.%F{green}.%F{red})>%f '
+setopt PROMPT_SUBST ; PS1='%F{blue}%1~%f%F{red}$(__git_ps1 "(%s)")%f %(?.%F{green}.%F{red})> '
 
 source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion
 eval "$(zoxide init zsh)"
+
+source ~/workspaces/dotfiles/arduinocli.zsh
+source ~/workspaces/dotfiles/zshprompt.zsh
