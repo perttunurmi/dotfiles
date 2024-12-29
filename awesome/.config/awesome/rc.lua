@@ -55,7 +55,7 @@ end
 beautiful.init(gears.filesystem.get_xdg_config_home() .. "awesome/redburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -604,3 +604,9 @@ client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
 end)
 -- }}}
+
+awful.util.spawn("nm-applet &")
+awful.util.spawn("volumeicon &")
+awful.util.spawn("xscreensaver &")
+awful.util.spawn("ibus-daemon &")
+awful.util.spawn("keepassxc &")

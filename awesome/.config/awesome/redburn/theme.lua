@@ -12,10 +12,11 @@ theme.wallpaper = "/usr/share/backgrounds/wallpapersden.com_lone-samurai_3239x18
 -- }}}
 
 -- {{{ Styles
-theme.font = "monospace 12"
+theme.font = "JetBrainsMono ExtraBold 12"
 
 -- {{{ Colors
-theme.fg_normal = "#DCDCCC"
+-- theme.fg_normal = "#DCDCCC"
+theme.fg_normal = "#ffffff"
 theme.fg_focus = "#F0DFAF"
 theme.fg_urgent = "#CC9393"
 theme.bg_normal = "#3F3F3F"
