@@ -12,6 +12,9 @@ export KEYTIMEOUT=1 #10ms
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/pertz/.zshrc'
 
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
 # autoload -Uz compinit
 # compinit
 # End of lines added by compinstall
@@ -99,19 +102,6 @@ bindkey '^[[P' delete-char
 
 #============================================================================#
 
-alias datatiede="conda activate datatiede"
-alias grep='grep --color=always'
-alias cpui='watch -n1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'
-alias ls='eza --color=always --group-directories-first --git --git-repos'
-alias ll='eza -lh --color=always --group-directories-first --git --git-repos'
-alias lla='eza -alhF --color=always --group-directories-first --git --git-repos'
-alias la='eza -A --color=always --group-directories-first --git --git-repos'
-alias mv='mv -i --backup=simple'
-alias cd='z'
-alias cal='cal -m'
-alias vi=vim
-alias calc=ipython
-
 #============================================================================#
 
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
@@ -132,6 +122,7 @@ export MANPAGER='nvim +Man!'
 
 PS1='%F{blue}%1~ %(?.%F{green}.%F{red})>%f '
 
+source $HOME/aliases/aliases.sh
 source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion
 eval "$(zoxide init zsh)"
 
