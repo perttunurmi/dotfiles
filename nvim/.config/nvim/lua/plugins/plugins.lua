@@ -13,7 +13,8 @@ return {
         },
     },
     {
-        'tpope/vim-fugitive'
+        'tpope/vim-fugitive',
+        vim.keymap.set('n', '<leader>g', vim.cmd.Git),
     },
     {
         'lewis6991/gitsigns.nvim',

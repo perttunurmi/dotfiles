@@ -6,3 +6,9 @@ normal = { family = "JetBrains Mono", style = "SemiBold" }
 bold = { family = "JetBrains Mono", style = "ExtraBold" }
 italic = { family = "JetBrains Mono", style = "SemiBold Italic" }
 bold_italic = { family = "JetBrains Mono", style = "ExtraBold Italic" }
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+]
