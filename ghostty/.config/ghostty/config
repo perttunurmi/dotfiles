@@ -1,0 +1,14 @@
+theme = Afterglow
+background = #171717
+
+shell-integration = none
+
+window-decoration = false
+
+font-family = "JetBrainsMono"
+font-size = 18
+
+font-style = Bold
+font-style-bold = ExtraBold
+font-style-italic = "Bold Italic"
+font-style-bold-italic = "ExtraBold Italic"
