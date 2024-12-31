@@ -17,9 +17,11 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local battery_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
+local shutdownbtn = require('awesome-wm-widgets.logout-menu-widget.logout-menu')
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -79,9 +81,9 @@ awful.layout.layouts = {
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
-    -- awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
@@ -251,24 +253,20 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
             s.mytaglist,
-            s.mylayoutbox,
             s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
         {             -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
-            -- battery_widget(),
-            -- volume_widget {
-            --     widget_type = 'arc'
-            -- },
-            -- brightness_widget {
-            --     type = 'icon_and_text',
-            --     program = 'xbacklight',
-            --     step = 2,
-            -- },
-            mytextclock,
             wibox.widget.systray(),
+            wibox.widget.textbox("  "),
+            battery_widget(),
+            wibox.widget.textbox("  "),
+            shutdownbtn(),
+            wibox.widget.textbox(" "),
+            mytextclock,
+            s.mylayoutbox,
         },
     })
 end)
@@ -386,7 +384,7 @@ globalkeys = gears.table.join(
 
     -- Rofi
     awful.key({ modkey, "Shift" }, "p", function()
-        awful.spawn("rofi -show drun")
+        awful.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons")
     end, { description = "open rofi", group = "launcher" }),
 
     awful.key({ modkey }, "x", function()
@@ -634,8 +632,6 @@ client.connect_signal("unfocus", function(c)
 end)
 -- }}}
 
-awful.util.spawn("nm-applet &")
-awful.util.spawn("volumeicon &")
 awful.util.spawn("xscreensaver &")
-awful.util.spawn("ibus-daemon &")
 awful.util.spawn("keepassxc &")
+awful.util.spawn("picom --backend glx &")
