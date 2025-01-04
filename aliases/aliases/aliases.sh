@@ -22,8 +22,7 @@ alias mv='mv -i --backup=simple'
 alias cd='z'
 alias cal='cal -m'
 
-
-
+alias spotify='ncspot'
 
 alias gigachad='clear && echo "⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠋⠉⠈⠉⠉⠉⠉⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿⠀
 ⣿⣿⣿⣿⣿⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣿⣿⣿⣿⠀

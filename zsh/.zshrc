@@ -110,14 +110,13 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
-export PATH="$HOME/.emacs.d/bin:$PATH"
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
 
 # source ~/workspaces/dotfiles/less-termcap
 # source ~/workspaces/dotfiles/.git-prompt.sh
-# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 PS1='%F{blue}%1~ %(?.%F{green}.%F{red})>%f '
@@ -141,3 +140,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+tmux-git-autofetch() {(/home/pepe/.tmux/plugins/tmux-git-autofetch/git-autofetch.tmux --current &)}
+add-zsh-hook chpwd tmux-git-autofetch
+    
+
+if [ -e /home/pepe/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pepe/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
