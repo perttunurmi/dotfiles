@@ -1,4 +1,5 @@
 vim.cmd.colorscheme 'default'
+vim.cmd.colorscheme 'adwaita'
 vim.cmd.hi 'Normal guibg=none'
 
 Colors = function()
@@ -12,7 +13,7 @@ Colors = function()
   vim.cmd.hi 'Type guifg=SeaGreen'
   vim.cmd.hi 'Constant gui=bold guifg=nvimlightred'
   vim.cmd.hi '@variable guifg=nvimwhite'
-  vim.cmd.hi 'Statement guifg=brown'
+  vim.cmd.hi 'Statement guifg=#A33F3F'
   vim.cmd.hi 'Function guifg=nvimlightred'
   vim.cmd.hi 'Special gui=bold'
 
