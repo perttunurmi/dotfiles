@@ -19,6 +19,14 @@ return {
             require("lspconfig").lua_ls.setup { capabilities }
             require("lspconfig").pyright.setup { capabilities }
             require("lspconfig").ts_ls.setup { capabilities }
+            require("lspconfig").html.setup { capabilities }
+            require("lspconfig").jsonls.setup { capabilities }
+            require("lspconfig").texlab.setup { capabilities }
+            require("lspconfig").cssls.setup { capabilities }
+            require("lspconfig").yamlls.setup { capabilities }
+            require("lspconfig").bashls.setup { capabilities }
+            require("lspconfig").ccls.setup { capabilities }
+
         end,
         vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format() end)
     },
