@@ -4,9 +4,10 @@ background = #171717
 shell-integration = none
 
 window-decoration = false
+gtk-adwaita = false
 
 font-family = "JetBrainsMono"
-font-size = 18
+font-size = 15
 
 font-style = Bold
 font-style-bold = ExtraBold

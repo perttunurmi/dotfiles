@@ -81,7 +81,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
@@ -303,6 +303,13 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioPrev", function()
         awful.util.spawn("playerctl previous", false)
     end),
+    awful.key({ modkey, "Shift" }, "v", function()
+        awful.util.spawn("copyq show", false)
+    end),
+    awful.key({ modkey }, "e", function ()
+        awful.util.spawn("thunar", false)
+    end),
+
     awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
     awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
     awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
@@ -384,7 +391,7 @@ globalkeys = gears.table.join(
 
     -- Rofi
     awful.key({ modkey, "Shift" }, "p", function()
-        awful.spawn("rofi -show drun -icon-theme 'Papirus' -show-icons")
+        awful.spawn("rofi -show drun -icon-theme 'Newaita' -show-icons")
     end, { description = "open rofi", group = "launcher" }),
 
     awful.key({ modkey }, "x", function()
@@ -632,6 +639,9 @@ client.connect_signal("unfocus", function(c)
 end)
 -- }}}
 
-awful.util.spawn("xscreensaver &")
-awful.util.spawn("keepassxc &")
-awful.util.spawn("picom --backend glx &")
+awful.util.spawn("xscreensaver")
+awful.util.spawn("copyq")
+awful.util.spawn("keepassxc")
+awful.util.spawn("redshift-gtk -l 62:25")
+awful.util.spawn("picom --backend xrender")
+awful.util.spawn("kdeconnectd")
