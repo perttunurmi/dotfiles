@@ -6,3 +6,6 @@ normal = { family = "JetBrains Mono", style = "SemiBold" }
 bold = { family = "JetBrains Mono", style = "ExtraBold" }
 italic = { family = "JetBrains Mono", style = "SemiBold Italic" }
 bold_italic = { family = "JetBrains Mono", style = "ExtraBold Italic" }
+
+[window]
+# opacity = 0.8
