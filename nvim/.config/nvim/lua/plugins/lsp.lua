@@ -26,7 +26,6 @@ return {
             require("lspconfig").yamlls.setup { capabilities }
             require("lspconfig").bashls.setup { capabilities }
             require("lspconfig").ccls.setup { capabilities }
-
         end,
         vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format() end)
     },

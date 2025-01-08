@@ -4,8 +4,8 @@ vim.cmd.set 'guicursor+=i:block'
 vim.opt.colorcolumn = '80'
 vim.opt.cursorline = false
 
-vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.showmode = true
 vim.opt.wrap = false
 
