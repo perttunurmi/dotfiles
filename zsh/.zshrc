@@ -140,9 +140,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-tmux-git-autofetch() {(/home/pepe/.tmux/plugins/tmux-git-autofetch/git-autofetch.tmux --current &)}
-add-zsh-hook chpwd tmux-git-autofetch
-    
-
 if [ -e /home/pepe/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pepe/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+eval "$(starship init zsh)"
