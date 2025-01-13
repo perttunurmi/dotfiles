@@ -29,4 +29,21 @@ return {
         end,
         vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format() end)
     },
+    {
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("mason-lspconfig").setup {
+                ensure_installed = { "lua_ls", "rust_analyzer" },
+            }
+        end
+    },
+    {
+        "neovim/nvim-lspconfig"
+    },
 }
