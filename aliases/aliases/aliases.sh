@@ -21,6 +21,7 @@ alias la='eza -A --color=always --group-directories-first --git --git-repos'
 alias mv='mv -i --backup=simple'
 alias cd='z'
 alias cal='cal -m'
+alias vim='neovim'
 
 alias spotify='ncspot'
 

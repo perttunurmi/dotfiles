@@ -10,7 +10,7 @@ bindkey -e
 export KEYTIMEOUT=1 #10ms
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/pertz/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
@@ -116,8 +116,8 @@ export MANPAGER='nvim +Man!'
 
 # source ~/workspaces/dotfiles/less-termcap
 # source ~/workspaces/dotfiles/.git-prompt.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 PS1='%F{blue}%1~ %(?.%F{green}.%F{red})>%f '
 
@@ -127,19 +127,17 @@ eval "$(zoxide init zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/pepe/.config/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/perttu/.anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/pepe/.config/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/pepe/.config/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/perttu/.anaconda/etc/profile.d/conda.sh" ]; then
+        . "/home/perttu/.anaconda/etc/profile.d/conda.sh"
     else
-        export PATH="/home/pepe/.config/miniconda3/bin:$PATH"
+        export PATH="/home/perttu/.anaconda/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-if [ -e /home/pepe/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pepe/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 eval "$(starship init zsh)"
