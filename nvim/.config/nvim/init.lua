@@ -1,13 +1,16 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-if vim.g.vscode then
-    Vscode = true
-else
-    Vscode = false
-    require("config.lazy")
-    require("config.colors")
-end
+require("config.lazy")
+require("config.colors")
+
+-- if vim.g.vscode then
+--     Vscode = true
+-- else
+--     Vscode = false
+--     require("config.lazy")
+--     require("config.colors")
+-- end
 
 require("config.settings")
 require("config.keymaps")
