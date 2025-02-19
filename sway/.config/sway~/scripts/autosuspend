@@ -1,0 +1,1 @@
+echo 'auto' > '/sys/bus/usb/devices/1-10/power/control'
