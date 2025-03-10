@@ -23,12 +23,20 @@ return {
             require("lspconfig").jsonls.setup { capabilities }
             require("lspconfig").texlab.setup { capabilities }
             require("lspconfig").cssls.setup { capabilities }
+            require("lspconfig").css_variables.setup { capabilities }
+            require("lspconfig").cssmodules_ls.setup { capabilities }
+            require("lspconfig").tailwindcss.setup { capabilities }
             require("lspconfig").yamlls.setup { capabilities }
             require("lspconfig").bashls.setup { capabilities }
             require("lspconfig").ccls.setup { capabilities }
             require("lspconfig").jdtls.setup { capabilities }
+
+            vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format() end)
+            vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end)
+            vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end)
         end,
-        vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format() end)
+
+
     },
     {
         "williamboman/mason.nvim",

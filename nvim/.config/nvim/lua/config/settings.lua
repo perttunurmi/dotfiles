@@ -4,6 +4,9 @@ vim.cmd.set 'guicursor+=i:block'
 vim.opt.colorcolumn = '80'
 vim.opt.cursorline = false
 
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmode = true
@@ -34,17 +37,17 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 
 vim.diagnostic.config {
-  signs = false,
+    signs = false,
 }
 
 local highlight = {
-  'RainbowRed',
-  'RainbowYellow',
-  'RainbowBlue',
-  'RainbowOrange',
-  'RainbowGreen',
-  'RainbowViolet',
-  'RainbowCyan',
+    'RainbowRed',
+    'RainbowYellow',
+    'RainbowBlue',
+    'RainbowOrange',
+    'RainbowGreen',
+    'RainbowViolet',
+    'RainbowCyan',
 }
 -- local hooks = require 'ibl.hooks'
 -- -- create the highlight groups in the highlight setup hook, so they are reset
