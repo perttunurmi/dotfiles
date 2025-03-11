@@ -141,3 +141,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 eval "$(starship init zsh)"
+export PATH=$HOME/.local/bin:$PATH
