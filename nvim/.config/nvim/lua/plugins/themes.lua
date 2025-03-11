@@ -11,4 +11,7 @@ return {
             vim.cmd('colorscheme adwaita')
         end
     },
+    {
+        "tanvirtin/monokai.nvim",
+    }
 }
