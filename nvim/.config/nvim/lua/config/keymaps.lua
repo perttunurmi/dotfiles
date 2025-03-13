@@ -1,8 +1,8 @@
 vim.keymap.set('n', '<space>x', ':.lua<CR>')
 vim.keymap.set('v', '<space>x', ':lua<CR>')
 
-vim.keymap.set('n', "<M-k>", "<cmd>cnext<CR>")
-vim.keymap.set('n', "<M-j>", "<cmd>cprev<CR>")
+vim.keymap.set('n', '<M-k>', '<cmd>cnext<CR>')
+vim.keymap.set('n', '<M-j>', '<cmd>cprev<CR>')
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
 

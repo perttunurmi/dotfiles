@@ -11,9 +11,9 @@ return {
         end,
     },
     {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
+        'zbirenbaum/copilot.lua',
+        cmd = 'Copilot',
+        event = 'InsertEnter',
         opts = {
             suggestion = { enabled = false },
             panel = { enabled = false },
@@ -24,17 +24,17 @@ return {
         },
     },
     {
-        "saghen/blink.cmp",
+        'saghen/blink.cmp',
         optional = true,
-        dependencies = { "fang2hou/blink-copilot" },
+        dependencies = { 'fang2hou/blink-copilot' },
         opts = {
             sources = {
-                default = { "copilot" },
+                default = { 'copilot' },
                 providers = {
                     copilot = {
-                        name = "copilot",
-                        module = "blink-copilot",
-                        score_offset = 100,
+                        name = 'copilot',
+                        module = 'blink-copilot',
+                        score_offset = 0,
                         async = true,
                     },
                 },
@@ -53,7 +53,7 @@ return {
             { 'zbirenbaum/copilot.lua' },
             { 'nvim-lua/plenary.nvim', branch = 'master' }, -- for curl, log and async functions
         },
-        build = 'make tiktoken',                            -- Only on MacOS or Linux
+        build = 'make tiktoken', -- Only on MacOS or Linux
         opts = {
             -- See Configuration section for options
         },
