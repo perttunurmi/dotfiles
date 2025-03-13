@@ -1,8 +1,7 @@
 return {
     { 'HiPhish/rainbow-delimiters.nvim' },
     { 'nvim-treesitter/nvim-treesitter-context' },
-    { 'nvim-treesitter/nvim-treesitter-context' },
-    { 'nvim-java/nvim-java' },
+
     {
         'wakatime/vim-wakatime',
         lazy = false

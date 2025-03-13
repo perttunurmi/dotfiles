@@ -1,6 +1,9 @@
 vim.cmd.set 'guicursor+=n-v-c:blinkon500-blinkoff500'
 vim.cmd.set 'guicursor+=i:block'
 
+-- vim.opt.updatetime = 200
+-- vim.opt.timeoutlen = 300
+
 vim.opt.colorcolumn = '80'
 vim.opt.cursorline = false
 
@@ -20,6 +23,7 @@ vim.opt.sidescrolloff = 10
 
 vim.opt.smartindent = true
 vim.opt.smarttab = true
+vim.opt.breakindent = true
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
