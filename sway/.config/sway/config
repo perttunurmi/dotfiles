@@ -16,7 +16,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term ghostty
 # Your preferred application launcher
 set $menu wmenu-run
 set $filemanager nautilus
@@ -27,8 +27,8 @@ set $colorpicker 'hyprpicker | wl-copy'
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * {
-    # background '/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png' fill
-    resolution 1920x1080
+    background '/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png' fill
+    resolution 1920x1080 scale 1
 }
 bindsym $mod+m output "HDMI-A-2" enable ; output "eDP-1" disable
 
@@ -264,7 +264,7 @@ bar {
 exec nm-applet
 exec copyq
 
-default_border pixel 2
+# default_border pixel 2
 hide_edge_borders smart
 focus_follows_mouse yes
 
