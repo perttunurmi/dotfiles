@@ -34,6 +34,14 @@ return {
             -- elsewhere in your config, without redefining it, due to `opts_extend`
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
+                providers = {
+                    cmdline = {
+                        -- ignores cmdline completions when executing shell commands
+                        enabled = function()
+                            return vim.fn.getcmdtype() ~= ':' or not vim.fn.getcmdline():match "^[%%0-9,'<>%-]*!"
+                        end,
+                    },
+                },
             },
         },
         opts_extend = { 'sources.default' },

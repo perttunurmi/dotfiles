@@ -212,7 +212,7 @@ return {
         -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
         lazy = false,
         keys = {
-            vim.keymap.set('n', '<leader>E', '<Cmd>Oil<CR>'),
+            vim.keymap.set('n', '<leader>e', '<Cmd>Oil<CR>'),
         },
     },
 }
