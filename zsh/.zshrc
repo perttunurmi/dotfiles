@@ -121,7 +121,7 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 PS1='%F{blue}%1~ %(?.%F{green}.%F{red})>%f '
 
-source $HOME/aliases/aliases.sh
+source $HOME/.aliases/aliases.sh
 source <(fzf --zsh) # Set up fzf key bindings and fuzzy completion
 eval "$(zoxide init zsh)"
 
