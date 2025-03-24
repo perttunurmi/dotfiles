@@ -19,6 +19,7 @@ return {
             { 'williamboman/mason.nvim', opts = {} },
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
+            'folke/snacks.nvim',
         },
         config = function()
             vim.api.nvim_create_autocmd('LspAttach', {
@@ -29,15 +30,27 @@ return {
                         vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
                     end
 
-                    map('gd', require('fzf-lua').lsp_definitions, '[G]oto [D]efinition')
-                    map('gr', require('fzf-lua').lsp_references, '[G]oto [R]eferences')
-                    map('gI', require('fzf-lua').lsp_implementations, '[G]oto [I]mplementation')
-                    map('<leader>D', require('fzf-lua').lsp_typedefs, 'Type [D]efinition')
-                    map('<leader>ds', require('fzf-lua').lsp_document_symbols, '[D]ocument [S]ymbols')
+                    map('gd', function()
+                        Snacks.picker.lsp_definitions()
+                    end, '[G]oto [D]efinition')
+                    map('gr', function()
+                        Snacks.picker.lsp_references()
+                    end, '[G]oto [R]eferences')
+                    map('gI', function()
+                        Snacks.picker.lsp_implementations()
+                    end, '[G]oto [I]mplementation')
+                    map('<leader>D', function()
+                        Snacks.picker.lsp_type_definitions()
+                    end, 'Type [D]efinition')
+                    map('<leader>ds', function()
+                        Snacks.picker.lsp_symbols()
+                    end, '[D]ocument [S]ymbols')
 
                     map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
                     map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
-                    map('<leader>ca', require('fzf-lua').lsp_code_actions, '[C]ode [A]ction', { 'n', 'x' })
+                    -- map('<leader>ca', function()
+                    --     Snacks.picker.lsp_code_actions()
+                    -- end, '[C]ode [A]ction', { 'n', 'x' })
                     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
                     -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
