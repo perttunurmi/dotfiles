@@ -14,7 +14,7 @@ return {
                 enabled = true,
                 timeout = 3000,
             },
-            picker = { enabled = true },
+            picker = { enabled = true, layout = 'ivy' },
             quickfile = { enabled = true },
             scope = { enabled = true },
             scroll = { enabled = false },
@@ -41,7 +41,7 @@ return {
                     Snacks.picker.files()
                 end,
                 desc = 'Find Files',
-           },
+            },
             {
                 '<leader>,',
                 function()

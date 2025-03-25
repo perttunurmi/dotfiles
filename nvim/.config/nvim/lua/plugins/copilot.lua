@@ -11,19 +11,6 @@ return {
         end,
     },
     {
-        'zbirenbaum/copilot.lua',
-        cmd = 'Copilot',
-        event = 'InsertEnter',
-        opts = {
-            suggestion = { enabled = false },
-            panel = { enabled = false },
-            filetypes = {
-                markdown = true,
-                help = true,
-            },
-        },
-    },
-    {
         'saghen/blink.cmp',
         optional = true,
         dependencies = { 'fang2hou/blink-copilot' },
@@ -34,7 +21,7 @@ return {
                     copilot = {
                         name = 'copilot',
                         module = 'blink-copilot',
-                        score_offset = 0,
+                        score_offset = -10,
                         async = true,
                     },
                 },
@@ -56,7 +43,16 @@ return {
         build = 'make tiktoken', -- Only on MacOS or Linux
         opts = {
             -- See Configuration section for options
+            mappings = {
+                reset = {
+                    normal = '<M-r>',
+                    insert = '<M-r>',
+                },
+            },
         },
         -- See Commands section for default commands if you want to lazy load on them
+        vim.keymap.set('n', '<C-I>', function()
+            require('CopilotChat').toggle()
+        end),
     },
 }
