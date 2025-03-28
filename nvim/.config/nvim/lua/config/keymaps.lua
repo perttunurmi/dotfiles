@@ -14,3 +14,10 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.api.nvim_set_keymap('n', '<Esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+vim.keymap.set('n', '<leader>y', '"+y') -- Copy to clipboard
+vim.keymap.set('n', '<leader>p', '"+p') -- Paste from clipboard
+
+-- Move regions in visual mode and keep the selection after move
+vim.keymap.set('v', 'J', ':move+2<CR>gv=gv')
+vim.keymap.set('v', 'K', ':move-2<CR>gv=gv')

@@ -51,7 +51,7 @@ return {
             },
         },
         -- See Commands section for default commands if you want to lazy load on them
-        vim.keymap.set('n', '<C-I>', function()
+        vim.keymap.set('n', '<M-i>', function()
             require('CopilotChat').toggle()
         end),
     },
