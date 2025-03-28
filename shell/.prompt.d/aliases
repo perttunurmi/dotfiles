@@ -21,3 +21,5 @@ alias cd='z'
 alias cal='cal -m'
 alias vim='vi'
 alias vi="vi --clean"
+
+alias ssh='export TERM=xterm && ssh'
