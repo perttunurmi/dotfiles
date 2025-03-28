@@ -30,7 +30,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' select-prompt '%SScrolling active: %s%s'
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots markdirs)
+_comp_options+=(globdots)
 
 autoload -U colors && colors
 autoload -U select-word-style

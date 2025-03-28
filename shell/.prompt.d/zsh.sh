@@ -67,4 +67,3 @@ export STARSHIP_CONFIG=$HOME/.prompt.d/starship.toml
 eval "$(starship init zsh)"
 
 
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
