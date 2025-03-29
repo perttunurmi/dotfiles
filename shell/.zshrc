@@ -41,3 +41,7 @@ bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
 bindkey '^[[P' delete-char
 
 source $HOME/.prompt.d/zsh.sh
+
+tmux-git-autofetch() {(/home/perttu/.tmux/plugins/tmux-git-autofetch/git-autofetch.tmux --current &)}
+add-zsh-hook chpwd tmux-git-autofetch
+    
