@@ -93,13 +93,6 @@ return {
                 desc = 'Find Config File',
             },
             {
-                '<leader>ff',
-                function()
-                    Snacks.picker.files()
-                end,
-                desc = 'Find Files',
-            },
-            {
                 '<leader>fg',
                 function()
                     Snacks.picker.git_files()

@@ -5,7 +5,7 @@ return {
         cmd = { 'ConformInfo' },
         keys = {
             {
-                '<leader>f',
+                '<leader>ff',
                 function()
                     require('conform').format { async = true, lsp_format = 'fallback' }
                 end,
@@ -36,15 +36,17 @@ return {
                 java = { 'google-java-format' },
                 -- Conform can also run multiple formatters sequentially
                 python = { 'isort', 'black' },
-                markdown = { 'markdownlint', 'prettierd', 'prettier', stop_after_first = true },
+                markdown = { 'prettierd', 'prettier', stop_after_first = true },
 
                 -- You can use 'stop_after_first' to run the first available formatter from the list
                 javascript = { 'prettierd', 'prettier', stop_after_first = true },
+                typescript = { 'prettierd', 'prettier', stop_after_first = true },
                 javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
                 json = { 'prettierd', 'prettier', stop_after_first = true },
-
                 html = { 'prettierd', 'prettier', stop_after_first = true },
                 css = { 'prettierd', 'prettier', stop_after_first = true },
+
+
             },
         },
     },
