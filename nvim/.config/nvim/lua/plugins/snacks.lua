@@ -18,7 +18,7 @@ return {
             quickfile = { enabled = true },
             scope = { enabled = true },
             scroll = { enabled = false },
-            statuscolumn = { enabled = true },
+            statuscolumn = { enabled = false },
             words = { enabled = true },
             styles = {
                 notification = {
@@ -450,13 +450,13 @@ return {
                 desc = 'Git Browse',
                 mode = { 'n', 'v' },
             },
-            {
-                '<leader>gg',
-                function()
-                    Snacks.lazygit()
-                end,
-                desc = 'Lazygit',
-            },
+            -- {
+            --     '<leader>gg',
+            --     function()
+            --         Snacks.lazygit()
+            --     end,
+            --     desc = 'Lazygit',
+            -- },
             {
                 '<leader>nn',
                 function()
