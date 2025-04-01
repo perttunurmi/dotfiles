@@ -34,6 +34,12 @@ Colors = function()
 
     -- Treesitter
     vim.cmd.hi 'TreeSitterContext guibg=#333842'
+    vim.cmd.hi 'markdownCodeBlock guifg=lightgreen'
+    vim.cmd.hi 'Title guifg=#E95678'
+    vim.cmd.hi 'markdownBold gui=bold'
+    vim.cmd.hi 'orgUnorderedListMarker guifg=lightblue'
+    vim.cmd.hi 'orgBoldDelimiter guifg=grey'
+    vim.cmd.hi 'orgItalicDelimiter guifg=grey'
 end
 
 Colors()
