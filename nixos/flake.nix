@@ -2,10 +2,12 @@
   description = "nixos config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
-
-   outputs = inputs@{ flake-parts, ... }:
-   {};
+  outputs = { self, nixpkgs }: {
+    nixosConfigurations.T480s = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [ ./configuration.nix ];
+    };
+  };
 }
