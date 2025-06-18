@@ -1,5 +1,3 @@
-[credential "https://github.com"]
-helper = !/usr/bin/gh auth git-credential
 [user]
 email = perttu.nurmi@gmail.com
 name = perttunurmi
@@ -19,6 +17,5 @@ untracked = magenta bold
 [color "branch"]
 remote = yellow
 
-
 [core]
-editor = nvim
+editor = vi

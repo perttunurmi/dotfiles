@@ -7,6 +7,7 @@ let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz";
 in
 
+
 {
   imports =
     [
@@ -14,6 +15,8 @@ in
       ./hardware-configuration.nix
       (import "${home-manager}/nixos")
     ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
@@ -96,6 +99,7 @@ in
     description = "Perttu Nurmi";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
+      google-chrome
       alacritty
       vscode.fhs
       vscode
@@ -110,6 +114,8 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    inputs.zen-browser.packages."${system}".default
+    lua-language-server
     docker
     unzip
     wget
