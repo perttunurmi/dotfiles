@@ -1,6 +1,7 @@
 [user]
 email = perttu.nurmi@gmail.com
-name = perttunurmi
+name = Perttu Nurmi
+
 [color]
 diff = auto
 status = auto
@@ -18,4 +19,4 @@ untracked = magenta bold
 remote = yellow
 
 [core]
-editor = vi
+editor = nvim
