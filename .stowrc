@@ -1,2 +1,4 @@
 --target=~/.config
 --ignore=.stowrc
+--ignore=setup.sh
+--ignore=Justfile

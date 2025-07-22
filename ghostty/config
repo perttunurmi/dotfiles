@@ -43,18 +43,35 @@
 # resize-overlay-duration = 4s 200ms
 
 
-theme = Afterglow
+theme = GruvboxDarkHard
 background = #171717
+
+# background-opacity = 0.98
 
 shell-integration = none
 
-# window-decoration = false
-# gtk-adwaita = false
+window-decoration = false
+gtk-adwaita = false
 
-font-family = "JetBrainsMono"
+font-family = "IosevkaTerm Nerd Font"
+# font-family = "ZedMono Nerd Font"
 font-size = 14
 
-font-style = "Bold"
-font-style-bold = "ExtraBold"
-font-style-italic = "Bold Italic"
-font-style-bold-italic = "ExtraBold Italic"
+# font-style = "Light"
+# font-style-bold = "ExtraBold"
+# font-style-italic = "Bold Italic"
+# font-style-bold-italic = "ExtraBold Italic"
+
+
+keybind=alt+one=unbind
+keybind=alt+two=unbind
+keybind=alt+three=unbind
+keybind=alt+four=unbind
+keybind=alt+five=unbind
+keybind=alt+six=unbind
+keybind=alt+seven=unbind
+keybind=alt+eight=unbind
+keybind=alt+nine=unbind
+
+window-padding-balance = true
+window-padding-y = 0
