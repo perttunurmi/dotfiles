@@ -16,7 +16,7 @@
 
 window#waybar {
     color: #FFF3A7;
-    background: black;
+    /* background: black; */
     border: 2px solid black;
 }
 
@@ -24,9 +24,11 @@ window#waybar {
     /* background: #805920; */
     /* border: solid 2px grey; */
     opacity: 1;
-    transition: none;
-    padding: 5px 5px;
-    border-radius: 5px;
+    transition: ease-in;
+    /* padding: 4px 4px; */
+    /* border-radius: 5px; */
+    border: solid 2px black;
+    background-color: darkslategray;
 }
 
 #workspaces button,
@@ -39,24 +41,25 @@ window#waybar {
 #workspaces button.active {
     background: #FFF3A7;
     color: #19140E;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border: solid 2px black;
 }
 
 #workspaces button.urgent {
     background: sandybrown;
     color: white;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 #workspaces button:hover {
     background: grey;
     color: white;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 #taskbar {
     background: grey;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     margin: 5px 10px 5px 50px;
 }
 
@@ -84,6 +87,7 @@ tooltip label {
     opacity: 1;
     padding: 0px 5px;
     margin: 2px 0px 2px 0px;
+    background-color: darkslategray;
 }
 
 /* #disk.critical, */
@@ -124,11 +128,13 @@ tooltip label {
 }
 
 #clock {
-    border-radius: 0px 5px 5px 0px;
+    text-decoration: underline;
+    /* border-radius: 0px 5px 5px 0px; */
 }
 
 #tray {
     /* background: green; */
-    border-radius: 5px;
+    /* border-radius: 5px; */
     /* margin: 5px 50px 5px 10px; */
+    border-left: solid 2px black;
 }
