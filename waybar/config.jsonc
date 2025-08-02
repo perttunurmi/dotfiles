@@ -103,10 +103,6 @@
         "format-plugged": " {capacity}%",
         "format-alt-click": "click-right",
         "format-alt": "{icon} {capacity}%",
-        "states": {
-            "warning": 20,
-            "critical": 10
-        },
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
