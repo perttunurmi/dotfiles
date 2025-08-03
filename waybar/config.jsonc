@@ -11,9 +11,6 @@
 
     "modules-left": [
         "hyprland/workspaces"
-        // "custom/rofi",
-        // "custom/weather",
-        // "custom/khorshididate",
         // "wlr/taskbar",
     ],
 
@@ -22,7 +19,7 @@
 
     "modules-right": [
         "tray",
-        // "battery",
+        "battery",
         // "pulseaudio",
         // "pulseaudio#microphone",
         // "backlight",
@@ -162,7 +159,7 @@
 
     "clock": {
         "timezone": "Europe/Helsinki",
-        "format": "{:%A %e %B %Y %H:%M}",
+        "format": "{:%A%e %B %Y %H:%M}",
         // "tooltip": true,
         // "on-click": "setbg",
         "tooltip-format": "{:%A, %B %e %Y}"
