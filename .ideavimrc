@@ -1,0 +1,55 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+let mapleader = " "
+
+set nocompatible
+set number
+set relativenumber
+set laststatus=2
+set scrolloff=10
+set sidescroll=10
+set smarttab
+set incsearch
+set autoread
+syntax on
+set ignorecase
+set smartcase
+set wildmode=longest,list,full
+set path+=**
+set wildmenu
+set nowrap
+
+set clipboard=unnamedplus
+
+map <C-w>q :close<CR>
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+"
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+map <leader>gb <Action>(ToggleLineBreakpoint)
+map <leader>ff V<Action>(ReformatCode)
+map <leader>rn <Action>(RenameElement)
+map <leader>c <Action>(Stop)
+
+map <leader>sf <Action>(GotoFile)
+
+set ideajoin
+set clipboard^=ideaput
+
+set nocursorline
