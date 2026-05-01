@@ -1,4 +1,7 @@
-theme = theme
+# theme = theme
+theme = Nord Wave
+cursor-color = #eeeeee
+cursor-text = #282828
 
 background-opacity = 0.95
 bold-is-bright = true
@@ -9,13 +12,13 @@ shell-integration-features = sudo,no-cursor,title,ssh-env,ssh-terminfo
 window-decoration = server
 gtk-tabs-location = top
 gtk-wide-tabs = false
-# gtk-single-instance = true
+gtk-single-instance = true
 window-vsync = false
 
 font-family = "IosevkaTerm Nerd Font"
 font-size = 17
 
-font-style = "Light"
+font-style = "Normal"
 font-style-bold = "ExtraBold"
 font-style-italic = "Bold Italic"
 font-style-bold-italic = "ExtraBold Italic"

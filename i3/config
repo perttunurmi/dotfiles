@@ -1,14 +1,14 @@
 set $mod Mod4
 
-set $TERMINAL ghostty 
+set $TERMINAL kitty
 set $LOCKER i3lock 10 20
+set $FILEMANAGER nautilus
 
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xautolock -time 10 -locker $LOCKER
 bindsym $mod+Mod1+l exec $LOCKER
 
 set $refresh_i3status killall -SIGUSR1 i3status
-set $vol_notify dunstify --replace=420 "$(wpctl get-volume @DEFAULT_SINK@)" -t 500
+set $vol_notify dunstify --replace-id=420 "$(wpctl get-volume @DEFAULT_SINK@)" -h "int:value:$(wpctl get-volume @DEFAULT_SINK@ | sed -e \"s/Volume: [0-9]*\.//\")" -t 500
+set $brightness_notify dunstify --replace-id=42 "$(var1=brightnessctl g; var2=brightnessctl m; (var1 / var2))" -t 500
 bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 10%+ && $vol_notify && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 10%- && $vol_notify && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle && $vol_notify && $refresh_i3status
@@ -23,13 +23,13 @@ bindsym $mod+Shift+s exec flameshot gui
 bindsym $mod+Shift+n exec brave -app=https://keep.google.com
 bindsym Print exec flameshot gui
 bindsym $mod+Print exec flameshot screen
-bindsym $mod+Shift+c exec gpick -s
+# bindsym $mod+Shift+c exec gpick -s
 
-bindsym $mod+v exec copyq menu
-bindsym $mod+e exec thunar
+bindsym $mod+v exec copyq show
+bindsym $mod+e exec $FILEMANAGER
 
 floating_modifier $mod
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id dmenu_run
@@ -123,7 +123,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# bindsym $mod+Shift+c reload
+bindsym $mod+mod4+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -146,17 +146,20 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
+        position top
         status_command i3status
 }
 
-default_border pixel 2
-default_floating_border pixel 5
+# exec --no-startup-id  polybar -r -c ~/.config/polybar/config.ini &
+
+default_border normal 3 px
+default_floating_border normal 0 px
 
 # hide_edge_borders smart
 focus_follows_mouse yes
 
-gaps inner 4
 gaps outer 4
+gaps inner 4
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
@@ -166,8 +169,9 @@ bindsym $mod+minus scratchpad show
 for_window [all] border normal
 for_window [all] title_window_icon yes
 for_window [window_role="pop-up"] floating enable
-# for_window [title="Bitwarden"] floating enable
+for_window [title="Bitwarden"] floating enable
 no_focus [window_role="pop-up"]
+for_window [class="^.*"] border pixel 5
 
 popup_during_fullscreen smart
 
@@ -191,16 +195,18 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-exec --no-startup-id xset r rate 200 30
-exec --no-startup-id picom --backend glx --daemon
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id nm-applet
-exec --no-startup-id copyq --start-server
-exec --no-startup-id redshift-gtk
-exec --no-startup-id flameshot
-exec --no-startup-id blueman-applet
-exec --no-startup-id dunst
-exec --no-startup-id bash ~/.fehbg
-exec --no-startup-id autotiling
-exec --no-startup-id udiskie
-exec --no-startup-id thunar --daemon
+exec_always --no-startup-id xset r rate 200 30 &
+
+exec --no-startup-id dex --autostart --environment i3
+exec xss-lock -- $LOCKER
+exec --no-startup-id picom --backend glx --daemon &
+exec --no-startup-id eval $(gnome-keyring-daemon --start --components=secrets)
+exec --no-startup-id nm-applet &
+exec --no-startup-id copyq --start-server &
+exec --no-startup-id redshift-gtk &
+exec --no-startup-id flameshot &
+exec --no-startup-id blueman-applet &
+exec --no-startup-id dunst &
+exec --no-startup-id bash ~/.fehbg &
+exec --no-startup-id udiskie &
+# exec --no-startup-id thunar --daemon &
