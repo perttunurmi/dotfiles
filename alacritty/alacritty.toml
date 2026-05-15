@@ -1,0 +1,17 @@
+[general]
+live_config_reload = true
+
+[font]
+size = 18
+
+[colors]
+cursor = { text = "#000000", cursor = "#ffffff" }
+
+[cursor]
+style = { shape = "block", blinking = "on" }
+
+[mouse]
+hide_when_typing = true
+
+[window]
+dynamic_padding = true
