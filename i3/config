@@ -1,6 +1,6 @@
 set $mod Mod4
 
-set $TERMINAL kitty
+set $TERMINAL alacritty
 set $LOCKER i3lock 10 20
 set $FILEMANAGER nautilus
 
@@ -23,7 +23,6 @@ bindsym $mod+Shift+s exec flameshot gui
 bindsym $mod+Shift+n exec brave -app=https://keep.google.com
 bindsym Print exec flameshot gui
 bindsym $mod+Print exec flameshot screen
-# bindsym $mod+Shift+c exec gpick -s
 
 bindsym $mod+v exec copyq show
 bindsym $mod+e exec $FILEMANAGER
@@ -32,7 +31,6 @@ floating_modifier $mod
 # tiling_drag modifier titlebar
 bindsym $mod+Return exec $TERMINAL
 bindsym $mod+Shift+q kill
-# bindsym $mod+d exec --no-startup-id dmenu_run
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -150,26 +148,26 @@ bar {
         status_command i3status
 }
 
-# exec --no-startup-id  polybar -r -c ~/.config/polybar/config.ini &
-
-default_border normal 3 px
+default_border normal 2 px
 default_floating_border normal 0 px
 
-# hide_edge_borders smart
+hide_edge_borders smart
 focus_follows_mouse yes
 
-gaps outer 4
-gaps inner 4
+gaps outer 2
+gaps inner 2
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# smart_gaps on
+smart_gaps on
 
 for_window [all] border normal
 for_window [all] title_window_icon yes
 for_window [window_role="pop-up"] floating enable
 for_window [title="Bitwarden"] floating enable
+for_window [title="Bitwarden"] floating enable
+for_window [class="Nautilus"] floating enable
 no_focus [window_role="pop-up"]
 for_window [class="^.*"] border pixel 5
 
@@ -195,11 +193,11 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-exec_always --no-startup-id xset r rate 200 30 &
+exec_always --no-startup-id xset r rate 250 30 &
 
 exec --no-startup-id dex --autostart --environment i3
 exec xss-lock -- $LOCKER
-exec --no-startup-id picom --backend glx --daemon &
+# exec --no-startup-id picom --backend glx --daemon &
 exec --no-startup-id eval $(gnome-keyring-daemon --start --components=secrets)
 exec --no-startup-id nm-applet &
 exec --no-startup-id copyq --start-server &
