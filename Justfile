@@ -6,7 +6,7 @@ list:
 
 stow:
     stow -t $HOME ideavimrc
-    stow -t $HOME/.config i3 ghostty tmux
+    stow -t $HOME/.config .
 
 update:
     git submodule update --remote

@@ -2,7 +2,7 @@
 live_config_reload = true
 
 [font]
-size = 18
+size = 12
 
 [colors]
 cursor = { text = "#000000", cursor = "#ffffff" }
@@ -14,4 +14,5 @@ style = { shape = "block", blinking = "on" }
 hide_when_typing = true
 
 [window]
-dynamic_padding = true
+# dynamic_padding = true
+opacity = 1.0

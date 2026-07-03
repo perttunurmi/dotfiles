@@ -2,3 +2,4 @@
 --ignore=.stowrc
 --ignore=setup.sh
 --ignore=Justfile
+--ignore=ideavimrc

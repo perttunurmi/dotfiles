@@ -151,21 +151,20 @@ bar {
 default_border normal 2 px
 default_floating_border normal 0 px
 
-hide_edge_borders smart
+# hide_edge_borders smart
 focus_follows_mouse yes
 
-gaps outer 2
+gaps outer 1
 gaps inner 2
 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-smart_gaps on
+# smart_gaps on
 
 for_window [all] border normal
 for_window [all] title_window_icon yes
 for_window [window_role="pop-up"] floating enable
-for_window [title="Bitwarden"] floating enable
 for_window [title="Bitwarden"] floating enable
 for_window [class="Nautilus"] floating enable
 no_focus [window_role="pop-up"]
