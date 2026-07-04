@@ -1,7 +1,3 @@
-# Lenovo T480s config
+# My dotfiles
 
-### Download
-
-```
-git clone https://github.com/perttunurmi/dotfiles $HOME/.dotfiles
-```
+The configuration files for my computers
