@@ -2,12 +2,12 @@
 
 if [[ ! -x $(which fzf) ]]; then
     printf "fzf not installed\n"
-    exit 1
+    exit 200
 fi
 
 if [[ ! -x $(which tmux) ]]; then
     printf "tmux not installed\n"
-    exit 1
+    exit 201
 fi
 
 tmux_fzf_select_session() {
@@ -19,4 +19,4 @@ tmux_fzf_select_session() {
     fi
 }
 
-tmux_fzf_select_session
+alias tma=tmux_fzf_select_session
