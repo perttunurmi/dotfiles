@@ -21,6 +21,7 @@ bindsym $mod+Tab exec rofi -show window -show-icons
 
 bindsym $mod+Shift+s exec flameshot gui
 bindsym $mod+Shift+n exec brave -app=https://keep.google.com
+bindsym $mod+Shift+b exec $HOME/.dotfiles/bash/scripts/bookmarks.py
 bindsym Print exec flameshot gui
 bindsym $mod+Print exec flameshot screen
 
@@ -196,7 +197,7 @@ exec_always --no-startup-id xset r rate 250 30 &
 
 exec --no-startup-id dex --autostart --environment i3
 exec xss-lock -- $LOCKER
-# exec --no-startup-id picom --backend glx --daemon &
+exec --no-startup-id picom --backend glx --daemon &
 exec --no-startup-id eval $(gnome-keyring-daemon --start --components=secrets)
 exec --no-startup-id nm-applet &
 exec --no-startup-id copyq --start-server &
