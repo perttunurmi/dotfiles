@@ -1,0 +1,48 @@
+[[keyboard.bindings]]
+key = "Space"
+mods = "Control"
+chars = "\u0000"
+
+[window]
+decorations = "Full"
+dynamic_title = false
+
+[font]
+size = 14.5
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[terminal.shell]
+program = "wsl"
+args = ["~"]
+
+[colors.primary]
+background = "0x161618"
+foreground = "0xdadada"
+
+[colors.cursor]
+text = "0x161618"
+cursor = "0xcc6633"
+
+[colors.normal]
+black = "0x161618"
+red = "0xcc5533"
+green = "0x88aa55"
+yellow = "0xdd9933"
+blue = "0x5599aa"
+magenta = "0xaa77aa"
+cyan = "0x55aaaa"
+white = "0xdadada"
+
+[colors.bright]
+black = "0x383838"
+red = "0xdd6633"
+green = "0x99bb66"
+yellow = "0xeeaa55"
+blue = "0x66aab5"
+magenta = "0xbbaabb"
+cyan = "0x66bbbb"
+white = "0xefefef"
+
