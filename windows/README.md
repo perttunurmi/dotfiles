@@ -6,6 +6,6 @@ On Windows I use a custom keyboard layout:
 
 ## Additional modules
 
-- [Ideavimrc](../ideavimrc/.ideavimrc)
+- [IdeaVIMrc](../ideavimrc/.ideavimrc)
 
 - [NixOS for WSL](https://github.com/nix-community/NixOS-WSL/releases/latest)
