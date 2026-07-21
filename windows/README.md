@@ -1,4 +1,11 @@
 # Windows configuration
 
-[Keyboard layout](https://github.com/pieter-degroote/us-intl-altgr-dk)
+On Windows I use a custom keyboard layout:
 
+[Keyboard layout](https://github.com/perttunurmi/us-intl-altgr-dk')
+
+## Additional modules
+
+- [Ideavimrc](../ideavimrc/.ideavimrc)
+
+- [NixOS for WSL](https://github.com/nix-community/NixOS-WSL/releases/latest)
