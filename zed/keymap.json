@@ -7,9 +7,12 @@
 // from the command palette.
 [
   {
-    "context": "Workspace",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
+      "g f f": "file_finder::Toggle",
+      "g f s": "workspace::NewSearch",
+      "g p s": "project_symbols::Toggle",
+      "g p r n": "project_panel::Rename",
     },
   },
   {
@@ -17,5 +20,17 @@
     "bindings": {
       // "j k": "vim::NormalBefore"
     },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "unbind": {
+      "shift-d": "project_panel::Delete"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "shift-d": "project_panel::Trash"
+    }
   }
 ]
