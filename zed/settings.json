@@ -7,19 +7,45 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "ui_font_size": 11.0,
-  "ui_font_weight": 400.0,
-  "agent_ui_font_size": 11.0,
-  "terminal": {
-    "font_size": 14.0
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
   },
-  "use_system_prompts": false,
-  "use_system_path_prompts": false,
+  "markdown_preview_code_font_family": ".ZedMono",
+  "ui_font_family": "Arial",
+  "markdown_preview_font_family": ".ZedSans",
+  "ui_font_size": 16.0,
+  "languages": {
+    "Markdown": {
+      "show_edit_predictions": false
+    }
+  },
+  "snippet_sort_order": "inline",
+  "show_signature_help_after_edits": true,
+  "auto_signature_help": false,
+  "preview_tabs": {
+    "enable_preview_from_file_finder": true,
+    "enable_preview_from_project_panel": true
+  },
+  "preferred_line_length": 100,
+  "toolbar": {
+    "quick_actions": false,
+    "breadcrumbs": false
+  },
+  "terminal": {
+    "font_family": ".ZedMono",
+    "toolbar": {
+      "breadcrumbs": false,
+    }
+  },
   "diff_view_style": "split",
-  "theme": "Monokai-og",
+  "use_system_path_prompts": false,
+  "use_system_prompts": false,
   "redact_private_values": true,
   "buffer_line_height": "comfortable",
   "which_key": {
+    "delay_ms": 0,
     "enabled": true
   },
   "prettier": {
@@ -35,7 +61,7 @@
     "mute_on_join": true
   },
   "collaboration_panel": {
-    "dock": "right",
+    "dock": "left",
     "button": false
   },
   "vim": {
@@ -43,28 +69,33 @@
     "use_smartcase_find": true,
     "toggle_relative_line_numbers": true,
   },
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_family": "JetBrains Mono NL",
   "ui_font_fallbacks": [
-    "JetBrainsMono Nerd Font Mono"
+    "JetBrains Mono NL"
   ],
   "buffer_font_fallbacks": [
-    "JetBrainsMono Nerd Font Mono"
+    "JetBrains Mono NL"
   ],
   "cli_default_open_behavior": "new_window",
   "title_bar": {
-    "show_menus": false,
+    "button_layout": "standard",
+    "show_user_picture": true,
+    "show_user_menu": true,
+    "show_sign_in": true,
+    "show_branch_name": true,
+    "show_menus": true,
     "show_branch_status_icon": true,
   },
   "git_panel": {
     "folder_icons": false,
-    "tree_view": true,
-    "fallback_branch_name": "master",
-    "dock": "right",
+    "tree_view": false,
+    "fallback_branch_name": "",
+    "dock": "left",
     "diff_stats": true,
     "show_count_badge": true,
     "file_icons": true,
   },
-  "icon_theme": "Colored Zed Icons Theme Dark",
+  "icon_theme": "Material Icon Theme",
   "disable_ai": true,
   "edit_predictions": {
     "mode": "subtle",
@@ -78,12 +109,12 @@
       "model": "gpt-5.4-mini",
       "enable_thinking": false
     },
-    "dock": "left",
-    "default_profile": "write",
+    "dock": "right",
+    "default_profile": "ask",
     "default_model": {
-      "effort": "high",
+      "effort": "medium",
       "provider": "copilot_chat",
-      "model": "gpt-5.3-codex",
+      "model": "gpt-5.4-mini",
       "enable_thinking": true,
     },
     "favorite_models": [],
@@ -98,28 +129,37 @@
   },
   "format_on_save": "off",
   "project_panel": {
+    "hide_gitignore": false,
+    "scrollbar": {
+      "horizontal_scroll": true
+    },
     "diagnostic_badges": true,
     "bold_folder_labels": false,
-    "dock": "right",
+    "dock": "left",
     "git_status_indicator": true,
     "git_status": true,
   },
   "outline_panel": {
+    "default_width": 301.0,
     "button": true,
-    "dock": "right",
+    "dock": "left",
     "git_status": true,
   },
   "base_keymap": "VSCode",
   "status_bar": {
     "show_active_file": true,
+    "cursor_position_button": true,
     "line_endings_button": true,
     "active_encoding_button": "enabled",
     "experimental.show": true,
   },
   "tab_bar": {
+    "show_pinned_tabs_in_separate_row": false,
     "show": false,
   },
   "tabs": {
+    "file_icons": false,
+    "show_diagnostics": "errors",
     "git_status": true,
   },
   "relative_line_numbers": "enabled",
@@ -131,6 +171,7 @@
     "show": "never",
   },
   "scrollbar": {
+    "search_results": true,
     "show": "auto",
     "axes": {
       "horizontal": false,
@@ -148,7 +189,13 @@
       "type": "registry",
     },
   },
+  "session": {
+    "trust_all_worktrees": true,
+  },
   "vim_mode": true,
-  "buffer_font_size": 12.0,
-  // "theme": "Monokai-og",
+  "theme": {
+    "mode": "system",
+    "light": "JetBrains Islands Light",
+    "dark": "JetBrains Islands Dark"
+  },
 }
