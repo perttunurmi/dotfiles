@@ -2,7 +2,7 @@
 
 On Windows I use a custom keyboard layout:
 
-[Keyboard layout](https://github.com/perttunurmi/us-intl-altgr-dk')
+[Keyboard layout](https://github.com/perttunurmi/us-intl-altgr-dk)
 
 ## Additional modules
 
