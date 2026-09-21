@@ -1,0 +1,55 @@
+# Commands that should be applied only for interactive shells.
+[[ $- == *i* ]] || return
+
+stty werase undef
+
+
+HISTFILESIZE=100000
+HISTSIZE=10000
+
+# Shell options
+shopt -s histappend
+shopt -s extglob
+shopt -s globstar
+shopt -s checkjobs
+
+
+if ! command -v trash >/dev/null 2>&1; then
+    printf "trash-cli not installed\n"
+else
+    alias -- rm='trash -v'
+fi
+
+if command -v eza >/dev/null 2>&1; then
+    alias -- la='eza -a'
+    alias -- ll='eza -l'
+    alias -- lla='eza -la'
+    alias -- ls='eza'
+else
+    alias -- la='ls -a'
+    alias -- ll='ls -l'
+    alias -- lla='ls -la'
+fi
+
+alias -- mv='mv -i'
+
+
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init bash --cmd cd)"
+    alias -- zi=cdi
+fi
+
+if command -v atuin >/dev/null 2>&1; then
+    eval "$(atuin init bash --disable-up-arrow)"
+fi
+
+if command -v fzf >/dev/null 2>&1; then
+    eval "$(fzf --bash)"
+fi
+
+if command -v direnv >/dev/null 2>&1; then
+    eval "$(direnv hook bash)"
+fi
+
+bind '\C-w:unix-filename-rubout'
+
