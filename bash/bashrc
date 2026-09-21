@@ -53,3 +53,13 @@ fi
 
 bind '\C-w:unix-filename-rubout'
 
+
+export LESS_TERMCAP_md=$'\e[38;5;203m\e[1m'
+export LESS_TERMCAP_mb=$'\e[38;5;135m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[2;1;4;32m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export GROFF_NO_SGR=1
+
+export PAGER="less"
+export MANPAGER="less"
